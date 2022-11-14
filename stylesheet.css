@@ -1,0 +1,27 @@
+.Registrierungsformular {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    margin-left: 200px;
+}
+
+.Text {
+    margin: 10px
+}
+
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: gray;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+
+  .aktuell {
+    background-color: white;
+  }
