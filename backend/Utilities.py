@@ -17,9 +17,18 @@ def getUserlist():
     jsonList = JsonToObjectlist()
     listOfUsers =[]
     for user in jsonList.User:
-        userinstance = User(user.Email, user.Password,user.FirstName,
-                            user.LastName,user.PLZ, user.Birthdate, user.Rating,
-                            user.Bio,user.Username,user.NumberRatings) 
+        userinstance = User(user.Email, 
+                            user.Password,
+                            user.FirstName,
+                            user.LastName,
+                            user.PLZ, 
+                            user.Adress,                            
+                            user.Birthdate, 
+                            user.Rating,
+                            user.Bio,
+                            user.Username,
+                            user.Phonenumber, 
+                            user.Status) 
         listOfUsers.append(userinstance)
     return listOfUsers
 def customUserDecoder(UserDict):
@@ -27,11 +36,18 @@ def customUserDecoder(UserDict):
 
 
 
-def save():
-    return 0
+def save(Userlist, filepath="data/test.json"):
+    results = [obj.to_json() for obj in Userlist]
+    jsdata = json.dumps({"User": results}, indent=4)
+    with open(filepath, 'w') as outfile:
+        outfile.write(jsdata)
+    
+    print("Data saved")
 
 if __name__ == "__main__":
 
     userlist = getUserlist()
     print(type(userlist))
-    print(userlist[0].email)
+    print(userlist[0].username)
+    print(userlist[0].status)
+    save(userlist)
