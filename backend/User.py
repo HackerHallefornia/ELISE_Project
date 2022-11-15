@@ -11,7 +11,7 @@ class User:
     bio = ""
     username = ""
 
-    def __init__(self,e,pwd,v,n,p,a,d,r,b,u):
+    def __init__(self,e,pwd,v,n,p,a,d,r,b,u, ra):
         self.email = e
         self.password = pwd
         self.vorname = v
@@ -22,7 +22,16 @@ class User:
         self.rating = r
         self.bio = b
         self.username = u
-        self.number_rating = 0
+        self.number_rating = ra
 
-    def get_email():
-        return email
+    def getEmail(self, e):
+        return self.email
+    
+    def getPassword(self, p):
+        return self.password
+    
+    def loginUser(self, p):
+        if self.password == p:
+            return True
+        else:
+            return False
