@@ -24,6 +24,11 @@ a {
     text-decoration: none;
     font-size: 25px;
   }
+
+  .sidenav .nav-header {
+    font-size: 25px;
+    padding-left: 10px;
+  }
   
   .sidenav li {
     height: 50px;

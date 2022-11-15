@@ -7,6 +7,7 @@
 <body>
     <div id="mySidenav" class="sidenav">
         <ul class="menu-links">
+            <li class="nav-header">Registrierungsprozess</li>
             <li class = "nav-link">
                 <a class="active">Email und Passwort</a>
             </li>
@@ -31,15 +32,15 @@
         <h1 class="Text">Registrieren sie sich !</h1>
         <br><br><br>
         <label>E-Mail</label>
-        <input class="Text" type="text" name="vorname" value="" size="30" maxlength="50" margin="15 px">
+        <input class="Text" id="email" type="text" name="vorname" value="" size="30" maxlength="50" margin="15 px">
         <label>Passwort</label>
-        <input class="Text" type="text" name="vorname" value="" size="30" maxlength="50">
+        <input class="Text" id="passwort" type="text" name="vorname" value="" size="30" maxlength="50">
         <label>Passwort wiederholen</label>
-        <input class="Text" type="text" name="vorname" value="" size="30" maxlength="50">
-        <a href="Registrierung_Name.html">
-            <button class="btn btn-primary btn-lg">Weiter</button>
+        <input class="Text" id = "pw_repeat" type="text" name="vorname" value="" size="30" maxlength="50">
+        <button onclick="access_Data()" class="btn btn-primary btn-lg">Weiter</button>
+        <p id="demo"></p>
     </div>
-
+    <script language="javascript" type="text/javascript" src="access_Inputs.js"></script>
 </body>
 
 </html>
