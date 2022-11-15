@@ -11,6 +11,7 @@ class User:
     bio = ""
     username = ""
 
+
     def __init__(self,e,pwd,v,n,p,a,d,r,b,u,ph,st):
         self.email = e
         self.password = pwd
@@ -40,7 +41,15 @@ class User:
      "NumberRatings":self.number_rating,
      "Bio":self.bio ,  
      "Status":"Helper"}
+
+    def getEmail(self, e):
+        return self.email
     
-    def get_email():
-        pass
+    def getPassword(self, p):
+        return self.password
     
+    def loginUser(self, p):
+        if self.password == p:
+            return True
+        else:
+            return False
