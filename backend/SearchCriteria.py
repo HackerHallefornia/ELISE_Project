@@ -9,3 +9,7 @@ class SearchCriteria():
         self.endpoint = e
         self.plz = p
         self.category = c
+    def findRequests():
+        #json data laden
+        #
+        return []

@@ -5,14 +5,24 @@ class HelpRequest():
     plz = ""
     deadline = datetime(1900,1,1)
     description =""
-    matches = List HelpOffer
+    match = []
+    potential_matches = []
+    active = True
+    visible = True
+
     def __init__(self, c, p, d, desc):
         self.category = c
         self.plz = p
         self.deadline = d
         self.description = desc
     
-    def match():
+    def setMatch():
         match = 0
 
+    def addPotentialMatch():
+        # speichern in json
+        pass
     
+    def loadPotentialMatches():
+        #laden aus der json
+        pass
