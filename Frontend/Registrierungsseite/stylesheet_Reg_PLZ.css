@@ -40,20 +40,21 @@ a {
     margin-left: 20%;
   }
 
-  .Namenformular {
+  .PLZ-Formular {
     text-align: center;
     margin-top: 5cm;
     margin-bottom: 1rem;
     display: block;
   }
 
-  .Namenformular input {
+  .PLZ-Formular input {
     display: block;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 3cm;
   }
 
-  .Namenformular a {
+  .PLZ-Formular a {
     display: block;
+    margin-top: 5px;
   }
