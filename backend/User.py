@@ -41,7 +41,7 @@ class User:
      "Rating":self.rating,
      "NumberRatings":self.number_rating,
      "Bio":self.bio ,  
-     "Status":"Helper"}
+     "Status":self.status}
 
     def getEmail(self):
         return self.email
