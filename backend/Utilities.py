@@ -23,10 +23,14 @@ def getHelpRequestslist():
                             Request.PLZ,
                             Request.deadline,
                             Request.description,
-                            Request.time_start                            ) 
+                            Request.time_start, 
+                            decode_potential_matches(Request.potential_matches) ) 
         listofHelpRequests.append(Requestinstance)
     return listofHelpRequests
-    
+ 
+def decode_potential_matches(stringofpmatches):
+    chunks = stringofpmatches.split(',')    
+    return chunks
 
 def getUserlist():
     jsonList = JsonToObjectlist("data/User.json")
@@ -66,6 +70,7 @@ if __name__ == "__main__":
     print(userlist[0].username)
     print(userlist[0].status)
     requestlist = getHelpRequestslist()
-    print(requestlist[0].description)
+    print(requestlist[0].description)#
+    print(requestlist[0].potential_matches)
     
     

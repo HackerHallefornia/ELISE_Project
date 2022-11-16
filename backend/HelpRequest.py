@@ -12,14 +12,16 @@ class HelpRequest():
     visible = True
     startingtime = datetime(1900,1,1)
     endtime = datetime(1900,1,1)
+    potential_matches = []
 
-    def __init__(self, c, p, d,t,  desc):
+    def __init__(self, c, p, d,t,desc, po = []):
         self.category = c
         self.plz = p
         self.deadline = d
         self.description = desc
         self.time = t
-
+        self.potential_matches = po
+        
     def setMatch(h):
         match = h
 
