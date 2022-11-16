@@ -1,20 +1,35 @@
 import json
 from User import User
 from collections import namedtuple
+from HelpRequest import HelpRequest
 #from json import JSONEncoder
 
-def loadJsonAsString():
-    with open("data/User.json", "r") as read_file:
+def loadJsonAsString(filepath):
+    with open(filepath, "r") as read_file:
         data = json.load(read_file)
         jsonString =json.dumps(data)
         return jsonString
     
-def JsonToObjectlist():
-    userString= loadJsonAsString()
+def JsonToObjectlist(filepath):
+    userString= loadJsonAsString(filepath)
     return json.loads(userString, object_hook=customUserDecoder)
 
+
+def getHelpRequestslist():
+    jsonList = JsonToObjectlist("data/HelpRequests.json")
+    listofHelpRequests = []
+    for Request in jsonList.Requests:
+        Requestinstance = HelpRequest(Request.category,
+                            Request.PLZ,
+                            Request.deadline,
+                            Request.description,
+                            Request.time_start                            ) 
+        listofHelpRequests.append(Requestinstance)
+    return listofHelpRequests
+    
+
 def getUserlist():
-    jsonList = JsonToObjectlist()
+    jsonList = JsonToObjectlist("data/User.json")
     listOfUsers =[]
     for user in jsonList.User:
         userinstance = User(user.Email, 
@@ -50,4 +65,7 @@ if __name__ == "__main__":
     print(type(userlist))
     print(userlist[0].username)
     print(userlist[0].status)
-    save(userlist)
+    requestlist = getHelpRequestslist()
+    print(requestlist[0].description)
+    
+    
