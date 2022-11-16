@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hilfsantrag_Menu</title>
+    <link rel="stylesheet" href="stylesheet_Kategorie.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <ul class="menu-links">
+            <li class="nav-header">Menü</li>
+            <li class="nav-header">Mein Servicebereich</li>
+            <li class = "nav-link">
+                <a>Vermittlungsliste</a>
+            </li>
+            <button class="dropdown-btn">Hilfsantrag
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="Kategorie.html" class="active">Aktivität-Kategorie</a>
+                <a href="Tag_Uhrzeit.html">Tag und Uhrzeit</a>
+                <a href="Treffpunkt.html">Treffpunkt</a>
+                <a href="Übersicht.html">Übersicht</a>
+            </div>
+            <li class = "nav-link">
+                <a href="Registrierung_PLZ.html">Aktivitäten in der Nachbarschaft</a>
+            </li class = "nav-link">
+            <li class = "nav-link">
+                <a>Bewertungen</a>
+            </li>
+            <li class = "nav-link">
+                <a>Posteingang</p>
+            </li>
+            <li class = "nav-link">
+                <a>Einstellungen</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="Kategorie-Formular">
+        <h1>Wählen sie ein Bereich aus</h1>
+        <p>In diesem Schritt wählen Sie einen Bereich aus, in dem Sie Hilfe benötigen bzw. Hilfe anbieten möchten.</p>
+        <div class="Icons">
+            <div class ="cell">
+            <figure class="1_1">
+                <a href="Übersicht.html"><img src="Icons_ELISE/hilfebeimeinkauf.svg" alt="SVG mit img laden" style="background-color: yellow;"></a>
+                <figcaption>Hilfe beim Einkauf</figcaption>
+            </figure>
+            </div>
+            <div class ="cell">
+            <figure class ="1_2">
+                <img src="Icons_ELISE/HilfebeimTransport.svg" alt="SVG mit img laden" style="background-color: black;">
+                <figcaption>Hilfe beim Transport</figcaption>
+            </figure>
+            </div>
+            <div class ="cell">
+            <figure class ="1_3">
+                <img src="Icons_ELISE/Unterstutzungimhaushalt.svg" alt="SVG mit img laden" style="background-color: green;">
+                <figcaption>Unterstützung im Haushalt</figcaption>
+            </figure>
+            </div>
+            <div class ="cell">
+            <figure class ="2_1">
+                <img src="Icons_ELISE/BegleitungzumTermin.svg" alt="SVG mit img laden" style="background-color: purple;">
+                <figcaption>Begleitung zum Termin</figcaption>
+            </figure>
+            </div>
+            <div class ="cell">
+            <figure class ="2_2">
+                <img src="Icons_ELISE/HilfemitdemHaustier.svg" alt="SVG mit img laden" style="background-color: brown;">
+                <figcaption>Hilfe mit dem Haustier</figcaption>
+            </figure>
+            </div>
+            <div class ="cell">
+            <figure class ="2_3">
+                <img src="Icons_ELISE/TechnischeProbleme.svg" alt="SVG mit img laden" style="background-color: lightblue;">
+                <figcaption>Technische Probleme</figcaption>
+            </figure>
+            </div>
+            <figure class ="3_1">
+                <img src="Icons_ELISE/Soziales&kultur.svg" alt="SVG mit img laden" style="background-color: red;">
+                <figcaption>Soziales und Kultur</figcaption>
+            </figure>
+            <figure class ="3_2">
+                <img src="Icons_ELISE/Handwerkliche.svg" alt="SVG mit img laden" style="background-color: gray;">
+                <figcaption>Handwerkliche Hilfe</figcaption>
+            </figure>
+            <figure class ="3_3">
+                <img src="Icons_ELISE/Burokratie.svg" alt="SVG mit img laden" style="background-color: darkblue;">
+                <figcaption>Bürokratie</figcaption>
+            </figure>
+        </div>
+        <button class="below_Icons">
+            <a href="Tag_Uhrzeit.html">
+                Weiter
+            </a>
+        </button>
+        <button class="below_Icons">
+            <a href="Hilfsantrag_Menu.html">
+                Zurück zu Kategorie
+            </a>
+        </button>
+    </div>
+    <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }</script>
+</body>
+</html>
