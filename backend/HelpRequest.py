@@ -1,12 +1,13 @@
 from datetime import datetime
-import HelpOffer
+from HelpOffer import HelpOffer
+
 class HelpRequest():
     category =""
     plz = ""
     deadline = datetime(1900,1,1)
     description =""
-    match : HelpOffer
-    potential_matches = HelpOffer[100]
+  #  match : HelpOffer
+  #  potential_matches = HelpOffer[100]
     active = True
     visible = True
     startingtime = datetime(1900,1,1)
