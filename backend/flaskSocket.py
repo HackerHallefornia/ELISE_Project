@@ -66,6 +66,20 @@ def offerHelp():
     if request.method == 'POST':
         username = request.form.get('username')
         return render_template('') #todo: insert html file
-    
+ 
+#isHelpAccepted template
+@app.route('/isHelpAccepted', methods=['GET', 'POST'])   
+def isHelpAccepted():
+    if request.method == 'GET':
+        return render_template('acceptHelp.html')
+    if request.method == 'POST':
+        username = request.form.get('username')
+        accepted = request.form.get('accepted')
+        if accepted == 'true':
+            return render_template('')
+        else:
+            return render_template('') #todo: insert html file
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
