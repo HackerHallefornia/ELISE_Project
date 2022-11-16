@@ -26,6 +26,7 @@ class User:
         self.number_rating = 0
         self.phonenumber= ph
         self.status =st
+        
 
     def to_json(self):
       return {"Username":self.username,

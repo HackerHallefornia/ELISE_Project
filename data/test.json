@@ -29,6 +29,21 @@
             "NumberRatings": 0,
             "Bio": "",
             "Status": "Helper"
+        },
+        {
+            "Username": "johannesboldt2",
+            "Email": "johannes.boldt@freenet.de",
+            "FirstName": "Johannes",
+            "LastName": "Boldt2",
+            "Password": "Passwort123",
+            "Birthdate": "1967-01-01",
+            "Adress": "Hauptstrasse 2",
+            "PLZ": "06108",
+            "Phonenumber": "110",
+            "Rating": "0",
+            "NumberRatings": 0,
+            "Bio": "Hallo, ich bins. Ich mag walks in the park.",
+            "Status": "Helper"
         }
     ]
 }
