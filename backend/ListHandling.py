@@ -24,3 +24,9 @@ def addToPotentialMatchesList(u):
     l = getPotentialMatchesList()
     l.append(u)
     l.savePotentialMatchesList()
+
+def add_offer_to_request(helper_username, request_id):
+    list = Utilities.getHelpRequestslist()
+    for l in list:
+        if l.id == request_id:
+            l.addPotentialMatch(helper_username)

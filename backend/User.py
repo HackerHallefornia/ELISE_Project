@@ -54,3 +54,10 @@ class User:
             return True
         else:
             return False
+    def sendHelpOffer(self, id):
+        if(self.status == "Helper"):
+            add_offer_to_request(self.username, id)
+            self.help_offered_list.append(id)
+    
+    def search (s):
+        return s.findRequests
