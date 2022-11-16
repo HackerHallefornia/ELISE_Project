@@ -1,5 +1,5 @@
 import json
-from User import User
+import User
 from collections import namedtuple
 from HelpRequest import HelpRequest
 from SearchCriteria import SearchCriteria
@@ -58,7 +58,7 @@ def getUserlist():
     jsonList = JsonToObjectlist("data/User.json")
     listOfUsers = []
     for user in jsonList.User:
-        userinstance = User(user.Email,
+        userinstance = User.User(user.Email,
                             user.Password,
                             user.FirstName,
                             user.LastName,

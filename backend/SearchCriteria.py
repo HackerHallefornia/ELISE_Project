@@ -1,6 +1,5 @@
 from datetime import datetime
 
-
 class SearchCriteria():
     startingpoint = datetime(1900,1,1,12,0)
     endpoint = datetime(1900,1,1,12,0)

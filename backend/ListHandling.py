@@ -1,5 +1,6 @@
 import Utilities
-from User import User
+from SearchCriteria import SearchCriteria
+import User
 
 def login(e, p):
     userList = Utilities.getUserlist()
@@ -16,20 +17,48 @@ def register(e,pwd,v,n,p,a,d,r,b,u,ph,st):
     Utilities.save(userList)
 
 def addToUserList(u):
-    l = getUserList()
-    l.append(u)
-    l.saveUserList()
-
-def addToPotentialMatchesList(u):
-    l = getPotentialMatchesList()
-    l.append(u)
-    l.savePotentialMatchesList()
+    list = Utilities.getUserList()
+    list.append(u)
+    list.saveUserList()
 
 def add_offer_to_request(helper_username, request_id):
     list = Utilities.getHelpRequestslist()
-    for l in list:
-        if l.id == request_id:
-            l.addPotentialMatch(helper_username)
+    for request in list:
+        if request.id == request_id:
+            request.addPotentialMatch(helper_username)
+            break
+    Utilities.save(list, 'Requests', 'data/testrequests.json')
 
-def filter_help_request_list (search_criteria):
-    pass
+def get_filtered_help_request_list (search_criteria : SearchCriteria):
+    list = Utilities.getHelpRequestslist()
+    filtered_list = []
+    for l in list:
+        if search_criteria.compare_to_help_request:
+            filtered_list.append(l)
+    return filtered_list
+
+def set_match(request_id, helper_username):
+    list = Utilities.getHelpRequestslist()
+    for request in list:
+        if request.id == request_id:
+            request.setMatch(helper_username)
+            break
+    Utilities.save(list, 'Requests', 'data/testrequests.json')
+
+# def loadPotentialMatchesUser(username):
+#         list = Utilities.getHelpRequestslist()
+#         for l in list:
+#             if l.id == username:
+#                 pass
+
+# def loadPotentialMatchesHelpRequest(request_id):
+#    pass 
+
+if __name__ == '__main__':
+    sc = Utilities.getcurrentSearches()[0]
+    help_request = get_filtered_help_request_list(sc)[0]
+    u1 = Utilities.getUserlist()[0]
+    u1.sendHelpOffer(help_request.id)
+    u2 = Utilities.getUserlist()[1]
+    set_match(help_request.id, u1.username)
+    print('Its a match')

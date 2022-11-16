@@ -1,4 +1,5 @@
 from datetime import date
+import ListHandling
 class User:
     email = ""
     pasword = ""
@@ -56,5 +57,4 @@ class User:
             return False
     def sendHelpOffer(self, id):
         if(self.status == "Helper"):
-            add_offer_to_request(self.username, id)
-            self.help_offered_list.append(id)
+            ListHandling.add_offer_to_request(self.username, id)
