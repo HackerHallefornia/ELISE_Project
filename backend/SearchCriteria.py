@@ -14,6 +14,15 @@ class SearchCriteria():
         self.plz = p
         self.categories = c
         self.timeframe = t
+        
+    
+    def to_json(self):
+      return {"Username":self.username, 
+            "categories":",".join(self.categories), 
+            "PLZ":self.plz,
+            "time_start":self.startingpoint,
+            "time_end":self.endpoint,
+            "timeframe":self.timeframe}
 
 
     def compare_to_help_request(self, help_request):
