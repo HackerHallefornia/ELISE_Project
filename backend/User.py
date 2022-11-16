@@ -42,7 +42,7 @@ class User:
      "Bio":self.bio ,  
      "Status":"Helper"}
 
-    def getEmail(self, e):
+    def getEmail(self):
         return self.email
     
     def getPassword(self, p):
