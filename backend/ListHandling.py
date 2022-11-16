@@ -24,5 +24,3 @@ def addToPotentialMatchesList(u):
     l = getPotentialMatchesList()
     l.append(u)
     l.savePotentialMatchesList()
-
-register("johannes.boldt@freenet.de", "Passwort123", "Johannes", "Boldt2", "06108", "Hauptstrasse 2", "1967-01-01", "0", "Hallo, ich bins. Ich mag walks in the park.", "johannesboldt2", "110", "Helper")
