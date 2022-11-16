@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route('/register', methods=['GET', 'POST'])
 def registerRouting():
     if request.method == 'GET':
-        return render_template('register.html')
+        return True
     if request.method == 'POST': #todo change get request variables
         mail = request.form.get('mail')
         password = request.form.get('password')
@@ -26,7 +26,7 @@ def registerRouting():
 @app.route('/login', methods=['GET', 'POST']) # POST request login page
 def loginRouting():
     if request.method == 'GET':
-        return render_template('login.html')
+        return True
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
@@ -36,7 +36,7 @@ def loginRouting():
 @app.route('/requestHelp', methods=['GET', 'POST'])
 def requestHelp():
     if request.method == 'GET':
-        return render_template('requestHelp.html')
+        return True
     if request.method == 'POST':
         username = request.form.get('username')
         #todo: get all other variables
@@ -46,7 +46,7 @@ def requestHelp():
 @app.route('/offerHelp', methods=['GET', 'POST'])
 def offerHelp():
     if request.method == 'GET':
-        return render_template('offerHelp.html')
+        return True
     if request.method == 'POST':
         username = request.form.get('username')
         return True #todo: insert html file
@@ -55,7 +55,7 @@ def offerHelp():
 @app.route('/isHelpAccepted', methods=['GET', 'POST'])   
 def isHelpAccepted():
     if request.method == 'GET':
-        return render_template('acceptHelp.html')
+        return True
     if request.method == 'POST':
         username = request.form.get('username')
         accepted = request.form.get('accepted')
