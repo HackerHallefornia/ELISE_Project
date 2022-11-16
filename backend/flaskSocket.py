@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from ListHandling import login
+import ListHandling
 
 app = Flask(__name__)
 
@@ -16,18 +16,23 @@ def test():    # GET request
     if request.method == 'POST':
         return request.form.get('testVariable')
     
-def register():
+def registerRouting():
     if request.method == 'POST':
         return render_template('register.html')
     if request.method == 'GET':
+        mail = request.form.get('mail')
+        password = request.form.get('password')
         vorname = request.form.get('vorname')
         nachname = request.form.get('nachname')
-        mail = request.form.get('mail')
         plz = request.form.get('plz')
-        geburtsdatum = request.form.get('geburtsdatum')
-        telefonnummer = request.form.get('telefonnummer')
+        adress = request.form.get('adress')
+        dateOfBirth = request.form.get('geburtsdatum')
+        rating = 5 #todo rating anpassen
         info = request.form.get('info')
-        #todo: insert backend call here
+        username = request.form.get('username')
+        telefonnummer = request.form.get('telefonnummer')
+        status = 'helper'
+        ListHandling.register(mail, password, vorname, nachname,plz, adress, dateOfBirth, rating, info, username, telefonnummer, status) 
         return render_template() #todo: insert html file
 
 @app.route('/login', methods=['GET', 'POST']) # POST request login page
@@ -37,12 +42,12 @@ def loginRouting():
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
-        login_success = login(email, password)
+        login_success = ListHandling.login(email, password)
         if login_success:
             return "Login Successful" #todo: redirect to main page
         else:
             return render_template('login.html', error="Invalid Credentials") #todo: remove ERROR MESSAGE?
 
 
-
-app.run(host='0.0.0.0', port=80)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=80)
