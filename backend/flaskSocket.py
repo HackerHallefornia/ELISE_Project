@@ -16,10 +16,11 @@ def test():    # GET request
     if request.method == 'POST':
         return request.form.get('testVariable')
     
+@app.route('/register', methods=['GET', 'POST'])
 def registerRouting():
     if request.method == 'POST':
         return render_template('register.html')
-    if request.method == 'GET':
+    if request.method == 'GET': #todo change get request variables
         mail = request.form.get('mail')
         password = request.form.get('password')
         vorname = request.form.get('vorname')
@@ -48,6 +49,23 @@ def loginRouting():
         else:
             return render_template('login.html', error="Invalid Credentials") #todo: remove ERROR MESSAGE?
 
+@app.route('/requestHelp', methods=['GET', 'POST'])
+def requestHelp():
+    if request.method == 'GET':
+        return render_template('requestHelp.html')
+    if request.method == 'POST':
+        username = request.form.get('username')
+        #todo: get all other variables
+        #todo: call backend function
+        return render_template('') #todo: insert html file
 
+@app.route('/offerHelp', methods=['GET', 'POST'])
+def offerHelp():
+    if request.method == 'GET':
+        return render_template('offerHelp.html')
+    if request.method == 'POST':
+        username = request.form.get('username')
+        return render_template('') #todo: insert html file
+    
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80)
