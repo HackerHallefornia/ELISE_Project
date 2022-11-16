@@ -26,6 +26,7 @@ class User:
         self.number_rating = 0
         self.phonenumber= ph
         self.status =st
+        
 
     def to_json(self):
       return {"Username":self.username,
@@ -42,7 +43,7 @@ class User:
      "Bio":self.bio ,  
      "Status":"Helper"}
 
-    def getEmail(self, e):
+    def getEmail(self):
         return self.email
     
     def getPassword(self, p):
