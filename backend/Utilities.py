@@ -36,11 +36,14 @@ def getHelpRequestslist():
     jsonList = JsonToObjectlist("data/HelpRequests.json")
     listofHelpRequests = []
     for Request in jsonList.Requests:
-        Requestinstance = HelpRequest(Request.category,
+        Requestinstance = HelpRequest(Request.ID,
+                                      Request.Username,
+                                      Request.category,
                                       Request.PLZ,
                                       Request.deadline,
                                       Request.description,
                                       Request.time_start,
+                                      Request.time_end,
                                       decode_list(Request.potential_matches))
         listofHelpRequests.append(Requestinstance)
     return listofHelpRequests
@@ -75,9 +78,9 @@ def customUserDecoder(UserDict):
     return namedtuple('User', UserDict.keys())(*UserDict.values())
 
 
-def save(Userlist, filepath="data/test.json"):
-    results = [obj.to_json() for obj in Userlist]
-    jsdata = json.dumps({"User": results}, indent=4)
+def save(Objectlist, JSON_name= "User" ,  filepath="data/test.json"):
+    results = [obj.to_json() for obj in Objectlist]
+    jsdata = json.dumps({JSON_name : results}, indent=4)
     with open(filepath, 'w') as outfile:
         outfile.write(jsdata)
 
@@ -86,13 +89,15 @@ def save(Userlist, filepath="data/test.json"):
 
 if __name__ == "__main__":
 
-    userlist = getUserlist()
-    print(type(userlist))
-    print(userlist[0].username)
-    print(userlist[0].status)
+    # userlist = getUserlist()
+    # print(type(userlist))
+    # print(userlist[0].username)
+    # print(userlist[0].status)
     requestlist = getHelpRequestslist()
     print(requestlist[0].description)
     print(requestlist[0].potential_matches)
-    searches = getcurrentSearches()
-    print(searches[0].categories)
+    print(requestlist[0].to_json())
+    save(requestlist, "Requests", "data/testrequests.json")
+    # searches = getcurrentSearches()
+    # print(searches[0].categories)
     

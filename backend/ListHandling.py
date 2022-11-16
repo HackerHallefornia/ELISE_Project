@@ -32,5 +32,4 @@ def add_offer_to_request(helper_username, request_id):
             l.addPotentialMatch(helper_username)
 
 def filter_help_request_list (search_criteria):
-    
-
+    pass
