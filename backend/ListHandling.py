@@ -2,16 +2,27 @@ import Utilities
 from SearchCriteria import SearchCriteria
 import User
 
-def login(e, p):
+from pprint import pprint
+
+
+def give_rating(username, rating):
+    list = Utilities.getUserlist()
+    for user in list:
+        if user.username == username:
+            user.give_rating(rating)
+            break
+    Utilities.save(list)
+
+def login(email, pwd):
     userList = Utilities.getUserlist()
     for u in userList:
         print(u.getEmail())
-        if (u.email == e):
-            return u.loginUser(p)
+        if (u.email == email):
+            return u.loginUser(pwd)
         else:
             return False
-def register(e,pwd,v,n,p,a,d,r,b,u,ph,st):
-    u = User(e,pwd,v,n,p,a,d,r,b,u,ph,st)
+def register(email,pwd,vorname,nachname,plz,adress,dob,bio,username,phonenumber,status):
+    u = User(email,pwd,vorname,nachname,plz,adress,dob,bio,username,phonenumber,status)
     userList = Utilities.getUserlist()
     userList.append(u)
     Utilities.save(userList)
@@ -45,20 +56,20 @@ def set_match(request_id, helper_username):
             break
     Utilities.save(list, 'Requests', 'data/testrequests.json')
 
-# def loadPotentialMatchesUser(username):
-#         list = Utilities.getHelpRequestslist()
-#         for l in list:
-#             if l.id == username:
-#                 pass
 
-# def loadPotentialMatchesHelpRequest(request_id):
-#    pass 
 
 if __name__ == '__main__':
+    input()
     sc = Utilities.getcurrentSearches()[0]
+    pprint(vars(sc))
     help_request = get_filtered_help_request_list(sc)[0]
+    input()
+    pprint(vars(help_request))
     u1 = Utilities.getUserlist()[0]
+    input()
+    pprint(vars(u1))
     u1.sendHelpOffer(help_request.id)
     u2 = Utilities.getUserlist()[1]
+    input()
+    pprint(vars(u2))
     set_match(help_request.id, u1.username)
-    print('Its a match')

@@ -44,7 +44,21 @@ class HelpRequest():
         self.match = helper_username
         self.status = "Matched"
 
+    def complete_request(self,rating, username, user_status):
+        
+        if user_status == 'Helper':
+            if self.status == 'Fulfilled':
+                give_rating(self.username, rating)
+            else:
+                return False
+        if user_status == 'HelpSeeker':
+            self.status == 'Fulfilled'
+            give_rating(self.match, rating)
 
+
+    def cancel_match(user_status):
+        #TODO
+        pass
 
     def addPotentialMatch(self, helper_username):
         self.potential_matches.append(helper_username)

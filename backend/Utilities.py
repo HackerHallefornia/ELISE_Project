@@ -65,11 +65,12 @@ def getUserlist():
                             user.PLZ,
                             user.Adress,
                             user.Birthdate,
-                            user.Rating,
                             user.Bio,
                             user.Username,
                             user.Phonenumber,
-                            user.Status)
+                            user.Status,
+                            user.NumberRatings,
+                            user.Rating)
         listOfUsers.append(userinstance)
     return listOfUsers
 
