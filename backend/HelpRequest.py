@@ -14,7 +14,7 @@ class HelpRequest():
     endtime = datetime(1900,1,1)
     potential_matches = []
 
-    def __init__(self, username, category, plz, deadline,description ,starttime, endtime, po = [], match = '', status='Active', id = id()):
+    def __init__(self, username, category, plz, deadline,description ,starttime, endtime, po = [], match = '', status='Active', id = id):
         self.id = id
         self.username = username
         self.category = category
@@ -24,6 +24,7 @@ class HelpRequest():
         self.startingtime = starttime
         self.endtime = endtime
         self.potential_matches = po
+        self.status= status
         self.match = match
     
     def to_json(self):
