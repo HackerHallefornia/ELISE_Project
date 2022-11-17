@@ -1,0 +1,18 @@
+{
+    "Requests": [
+        {
+            "ID": 1912604712112,
+            "Username": "renee_witte",
+            "subcategory": "social",
+            "category": "social",
+            "deadline": "21/12/01 11:00:00",
+            "PLZ": "06114",
+            "time_start": "2022/12/03 15:00:00",
+            "time_end": "2022/12/03 15:00:00",
+            "description": "Ich will Schach spielen.",
+            "potential_matches": "Username1,Username2,john_doe,john_doe,john_doe",
+            "match": "",
+            "status": "Active"
+        }
+    ]
+}
