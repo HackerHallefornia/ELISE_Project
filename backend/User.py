@@ -1,4 +1,5 @@
 from datetime import date
+import ListHandling
 class User:
     email = ""
     pasword = ""
@@ -12,7 +13,7 @@ class User:
     username = ""
 
 
-    def __init__(self,e,pwd,v,n,p,a,d,r,b,u,ph,st):
+    def __init__(self,e,pwd,v,n,p,a,d,b,u,ph,st, nr=0, r=0.0):
         self.email = e
         self.password = pwd
         self.vorname = v
@@ -20,12 +21,12 @@ class User:
         self.plz = p
         self.adress = a
         self.dob = d
-        self.rating = r
         self.bio = b
         self.username = u
-        self.number_rating = 0
         self.phonenumber= ph
         self.status =st
+        self.number_rating = nr
+        self.rating = r
         
 
     def to_json(self):
@@ -41,7 +42,7 @@ class User:
      "Rating":self.rating,
      "NumberRatings":self.number_rating,
      "Bio":self.bio ,  
-     "Status":"Helper"}
+     "Status":self.status}
 
     def getEmail(self):
         return self.email
@@ -54,3 +55,10 @@ class User:
             return True
         else:
             return False
+    def sendHelpOffer(self, id):
+        if(self.status == "Helper"):
+            ListHandling.add_offer_to_request(self.username, id)
+    
+    def give_rating(self, rating):
+        self.rating = ((self.rating* float(self.number_rating) + rating) / float(self.number_rating) +1)
+        self.number_rating += 1

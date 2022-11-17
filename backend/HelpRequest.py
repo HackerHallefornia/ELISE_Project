@@ -1,49 +1,64 @@
 from datetime import datetime
-import HelpOffer
+import ListHandling
+
 class HelpRequest():
+    id = 0
+    username = ""
     category =""
     plz = ""
     deadline = datetime(1900,1,1)
     description =""
-    match : HelpOffer
-    potential_matches = HelpOffer[100]
-    active = True
-    visible = True
+    match = ""
+    status =  "Active" # Active, Matched, Fulfilled
     startingtime = datetime(1900,1,1)
     endtime = datetime(1900,1,1)
+    potential_matches = []
 
-    def __init__(self, c, p, d,t,  desc):
-        self.category = c
-        self.plz = p
-        self.deadline = d
-        self.description = desc
-        self.time = t
-
-    def setMatch(h):
-        match = h
-
-    def addPotentialMatch():
-        # speichern in json
-        pass
+    def __init__(self, username, category, plz, deadline,description ,starttime, endtime, po = [], match = '', status='Active', id = id()):
+        self.id = id
+        self.username = username
+        self.category = category
+        self.plz = plz
+        self.deadline = deadline
+        self.description = description
+        self.startingtime = starttime
+        self.endtime = endtime
+        self.potential_matches = po
+        self.match = match
     
-    def loadPotentialMatches():
-        #laden aus der json
-        pass
+    def to_json(self):
+        return {"ID":self.id,
+            "Username":self.username,
+            "subcategory":self.category, 
+            "category":self.category, 
+            "deadline":self.deadline,
+            "PLZ":self.plz,
+            "time_start":self.startingtime,
+            "time_end":self.endtime,
+            "description":self.description,
+            "potential_matches": ",".join(self.potential_matches),
+            "match": self.match,
+            "status": self.status
+            }
+        
+    def setMatch(self, helper_username):
+        self.match = helper_username
+        self.status = "Matched"
 
-    def setCategory(self, c):
-        self.category = c
-        return True
-    def getCategory(self):
-        return self.category
-    def getActive(self):
-        return self.active
-    def getVisible(self):
-        return self.visible
-    def getDeadline(self):
-        return self.deadline
-    def getStartingTime(self):
-        return self.startingtime
-    def getEndTime(self):
-        return self.endtime
-    def getPLZ(self):
-        return self.plz
+    def complete_request(self,rating, username, user_status):
+        if user_status == 'Helper':
+            if self.status == 'Fulfilled':
+                ListHandling.give_rating(self.username, rating)
+            else:
+                return False
+        if user_status == 'HelpSeeker':
+            self.status == 'Fulfilled'
+            ListHandling.give_rating(self.match, rating)
+
+
+    def cancel_match(self, status="Active"):
+        self.match = ""
+        self.status = status
+
+    def addPotentialMatch(self, helper_username):
+        self.potential_matches.append(helper_username)
