@@ -1,5 +1,7 @@
 from datetime import date
 import ListHandling
+import Utilities
+
 class User:
     email = ""
     pasword = ""
@@ -8,7 +10,7 @@ class User:
     plz = ""
     dob = date(1900,1,1)
     rating = 0.0
-    number_ratings = 0
+    number_rating = 0
     bio = ""
     username = ""
 
@@ -59,6 +61,15 @@ class User:
         if(self.status == "Helper"):
             ListHandling.add_offer_to_request(self.username, id)
     
-    def give_rating(self, rating):
-        self.rating = ((self.rating* float(self.number_rating) + rating) / float(self.number_rating) +1)
-        self.number_rating += 1
+    def give_rating(self, new_rating):
+            self.rating = compute_new_rating(self.number_rating, self.rating, new_rating)
+            self.number_rating = int(self.number_rating) + 1
+            user_list = Utilities.getUserlist()
+            Utilities.updateUserInUserlist(user_list, self)
+            # update User in Userlist
+
+def compute_new_rating(num_rating, avg_rating, r):
+    total = avg_rating * num_rating
+    new_total = total + r
+    new_avg = new_total / (num_rating + 1)
+    return round (new_avg, 2)
