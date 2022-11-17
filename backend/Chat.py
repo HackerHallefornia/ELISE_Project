@@ -1,15 +1,17 @@
-import datetime
+import Utilities
+
+
 class Chat():
-    def __init__(self, username1, username2, messages = [], u1_phone = "Hidden", u2_phone = "Hidden", u1_adress= "Hidden", u2_adress = "Hidden"):
+
+    
+    def __init__(self, username1:str, username2:str, Id = ""):
+        
         self.user1 = username1
         self.user2 = username2
-        self.messages = messages
-        self.u1_phone = u1_phone
-        self.u2_phone = u2_phone
-        self.u1_adress = u1_adress
-        self.u2_adress = u1_adress
-
-
+        self.id = Id
+        if self.id == "":
+            self.id = str(hash(username1+username1))[1:13]
+            
     def addMessageToChat(self,message):
         self.messages.append(message)
 
@@ -23,17 +25,22 @@ class Chat():
         """
         returns false if no address is saved
         """
-        if (username == self.user1):
-            self.u1_adress == "Visible"
-        if (username == self.user2):
-            self.u2_adress == "Visible"
+
+    def to_json(self):
+        return {"user1":self.user1,
+                "user2":self.user2, 
+                "self.id":self.id
+                }
+
+        
 
 class Message():
-    def __init__(self, sender, content, time = datetime.now()):
+    def __init__(self, sender, receiver, content, time):
+
         self.sender = sender
         self.content = content
 
-def getMessagesForChat():
+def getMessagesForChat(Chat, username):
     #TODO
     pass
 
@@ -41,3 +48,10 @@ def getChatsForUser():
     #TODO
     pass
 
+if __name__ == '__main__':
+    
+    chat1 = Chat("johnnyboi", "elma")
+    print(chat1.id)
+    Chatlist = [chat1, Chat("emma", "annemarie")]
+    Utilities.save(Chatlist,"Chats", "data/Chats.json")
+    
