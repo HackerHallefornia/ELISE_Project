@@ -40,7 +40,8 @@ class Message():
         self.sender = sender
         self.content = content
 
-def getMessagesForChat(Chat, username):
+def getMessagesForChat(Chatid, username):
+    #get 
     #TODO
     pass
 
@@ -50,8 +51,6 @@ def getChatsForUser():
 
 if __name__ == '__main__':
     
-    chat1 = Chat("johnnyboi", "elma")
-    print(chat1.id)
-    Chatlist = [chat1, Chat("emma", "annemarie")]
-    Utilities.save(Chatlist,"Chats", "data/Chats.json")
+    chats = Utilities.getChatlist()
+    Utilities.save(chats,"Chats", "data/Chats.json")
     

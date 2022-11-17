@@ -82,20 +82,19 @@ def give_rating(username_to_rate: str, rating: int, help_request : HelpRequest):
             break
 
 if __name__ == '__main__':
-    input()
+
     sc = Utilities.getcurrentSearches()[0]
-    pprint(vars(sc))
+   # pprint(vars(sc))
     help_request = get_filtered_help_request_list(sc)[0]
-    input()
     pprint(vars(help_request))
-    u1 = Utilities.getUserlist()[0]
-    input()
-    pprint(vars(u1))
-    u1.sendHelpOffer(help_request.id)
-    u2 = Utilities.getUserlist()[1]
-    input()
-    pprint(vars(u2))
-    print(help_request.id)
-    match(help_request.id, u1.username)
-    input()
-    help_request.cancel_match()
+    # u1 = Utilities.getUserlist()[0]
+    # input()
+    # pprint(vars(u1))
+    # u1.sendHelpOffer(help_request.id)
+    # u2 = Utilities.getUserlist()[1]
+    # input()
+    # pprint(vars(u2))
+    # print(help_request.id)
+    # match(help_request.id, u1.username)
+    # input()
+    # help_request.cancel_match()

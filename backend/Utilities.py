@@ -25,7 +25,7 @@ def getcurrentSearches():
         Searchinstance = SearchCriteria(Search.Username,
                                       Search.time_start,
                                       Search.time_end,
-                                      Search.PLZ,
+                                      decode_list(Search.PLZ),
                                       decode_list(Search.categories),
                                       Search.timeframe)
         listofSearches.append(Searchinstance)
@@ -123,5 +123,6 @@ if __name__ == "__main__":
     # save(requestlist, "Requests", "data/testrequests.json")
     searches = getcurrentSearches()
     print(searches[0].categories)
+    print(searches[0].plz)
     print(searches[0].to_json())
     save(searches, "Searches", "data/testsearches.json")
