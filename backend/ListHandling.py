@@ -2,19 +2,11 @@ import Utilities
 from SearchCriteria import SearchCriteria
 import User
 from datetime import date
+from HelpRequest import HelpRequest
 
 from pprint import pprint
 
-def give_rating(username: str, rating: int):
-    """
-    give rating to a specific user
-    """
-    list = Utilities.getUserlist()
-    for user in list:
-        if user.username == username:
-            user.give_rating(rating)
-            break
-    Utilities.save(list)
+
 
 def login(email:str, pwd:str):
     """
@@ -36,7 +28,7 @@ def register(email:str,pwd:str,vorname:str,nachname:str,plz:str,adress:str,dob:d
     u = User(email,pwd,vorname,nachname,plz,adress,dob,bio,username,phonenumber,status)
     userList = Utilities.getUserlist()
     userList.append(u)
-    Utilities.save(userList)
+    Utilities.save(list, "User", "data/User.json")
 
 def addToUserList(u:User):
     """
@@ -44,7 +36,7 @@ def addToUserList(u:User):
     """
     list = Utilities.getUserList()
     list.append(u)
-    list.saveUserList()
+    Utilities.save(list, "User", "data/User.json")
 
 def add_offer_to_request(helper_username:str, request_id:int):
     """
@@ -55,7 +47,7 @@ def add_offer_to_request(helper_username:str, request_id:int):
         if request.id == request_id:
             request.addPotentialMatch(helper_username)
             break
-    Utilities.save(list, 'Requests', 'data/testrequests.json')
+    Utilities.save(list, 'Requests', 'data/HelpRequests.json')
 
 def get_filtered_help_request_list (search_criteria : SearchCriteria):
     """
@@ -68,7 +60,7 @@ def get_filtered_help_request_list (search_criteria : SearchCriteria):
             filtered_list.append(l)
     return filtered_list
 
-def set_match(request_id, helper_username):
+def match(request_id, helper_username):
     """
     set match of a specific helper to a help request
     """
@@ -77,7 +69,17 @@ def set_match(request_id, helper_username):
         if request.id == request_id:
             request.setMatch(helper_username)
             break
-    Utilities.save(list, 'Requests', 'data/testrequests.json')
+    Utilities.save(list, 'Requests', 'data/HelpRequests.json')
+
+def give_rating(username_to_rate: str, rating: int, help_request : HelpRequest):
+    """
+    give rating to a specific user, helpseeker has to give rating first and close request
+    """
+    request_list = Utilities.getHelpRequestslist()
+    for request in request_list:
+        if help_request.id == request.id:
+            help_request.complete_request(rating, username_to_rate)
+            break
 
 if __name__ == '__main__':
     input()
@@ -93,4 +95,7 @@ if __name__ == '__main__':
     u2 = Utilities.getUserlist()[1]
     input()
     pprint(vars(u2))
-    set_match(help_request.id, u1.username)
+    print(help_request.id)
+    match(help_request.id, u1.username)
+    input()
+    help_request.cancel_match()
