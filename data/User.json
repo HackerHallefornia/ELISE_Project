@@ -1,32 +1,34 @@
-{ "User":[
-    {"Username":"john_doe",
-     "Email":"john_doe@web.de", 
-     "FirstName":"John", 
-     "LastName":"Doe",
-     "Password":"1234567",
-     "Birthdate":"1988-09-13",
-     "Adress":"Schleiermacherstrasse 15",
-     "PLZ":"06114",
-     "Phonenumber":"0000000000000",
-     "Rating":"4.5",
-     "NumberRatings":"8",
-     "Bio":"" ,  
-     "Status":"Helper" 
-     
-    },
-    {"Username":"renee_witte",
-     "Email":"renee_witte@web.de", 
-     "FirstName":"Renee", 
-     "LastName":"Witte",
-     "Password":"qwertz",
-     "Birthdate":"1950-11-02",
-     "Adress":"Schopenhauerstrasse 4",
-     "PLZ":"06114",
-     "Phonenumber":"11111111111",
-     "Rating":"4.3",
-     "NumberRatings":"4",
-     "Bio":"" ,  
-     "Status":"HelpSeeker"   
-    }
-  ]
+{
+    "User": [
+        {
+            "Username": "john_doe",
+            "Email": "john_doe@web.de",
+            "FirstName": "John",
+            "LastName": "Doe",
+            "Password": "1234567",
+            "Birthdate": "1988-09-13",
+            "Adress": "Schleiermacherstrasse 15",
+            "PLZ": "06114",
+            "Phonenumber": "0000000000000",
+            "Rating": 5.0,
+            "NumberRatings": 21,
+            "Bio": "",
+            "Status": "Helper"
+        },
+        {
+            "Username": "renee_witte",
+            "Email": "renee_witte@web.de",
+            "FirstName": "Renee",
+            "LastName": "Witte",
+            "Password": "qwertz",
+            "Birthdate": "1950-11-02",
+            "Adress": "Schopenhauerstrasse 4",
+            "PLZ": "06114",
+            "Phonenumber": "11111111111",
+            "Rating": 3.67,
+            "NumberRatings": 6,
+            "Bio": "",
+            "Status": "HelpSeeker"
+        }
+    ]
 }

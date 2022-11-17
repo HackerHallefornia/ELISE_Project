@@ -1,5 +1,6 @@
 from datetime import datetime
 import ListHandling
+import Utilities
 
 class HelpRequest():
     id = 0
@@ -14,7 +15,9 @@ class HelpRequest():
     endtime = datetime(1900,1,1)
     potential_matches = []
 
-    def __init__(self, username, category, plz, deadline,description ,starttime, endtime, po = [], match = '', status='Active', id = id):
+
+    def __init__(self, id, username, category, plz, deadline,description ,starttime, endtime, po = [], match = '', status='Active'):
+
         self.id = id
         self.username = username
         self.category = category
@@ -26,6 +29,8 @@ class HelpRequest():
         self.potential_matches = po
         self.status= status
         self.match = match
+        self.status = status
+        
     
     def to_json(self):
         return {"ID":self.id,
@@ -45,21 +50,37 @@ class HelpRequest():
     def setMatch(self, helper_username):
         self.match = helper_username
         self.status = "Matched"
+        request_list = Utilities.getHelpRequestslist()
+        Utilities.updateRequestInRequestlist(request_list, self)
 
-    def complete_request(self,rating, username, user_status):
-        if user_status == 'Helper':
+
+    def complete_request(self,rating, username_to_rate):
+        user_list = Utilities.getUserlist()
+        # get corresponding user to username
+        for u in user_list:
+            if u.username == username_to_rate:
+                break
+        if username_to_rate == self.match:
+            # means you are the creator of HelpRequest
+            u.give_rating(rating)
+            self.status = 'Fulfilled'
+            print(vars(self))
+            request_list = Utilities.getHelpRequestslist()
+            Utilities.updateRequestInRequestlist(request_list, self)
+            
+
+        if username_to_rate == self.username:
+            #means you are the helper 
             if self.status == 'Fulfilled':
-                ListHandling.give_rating(self.username, rating)
+                u.give_rating(rating)
             else:
                 return False
-        if user_status == 'HelpSeeker':
-            self.status == 'Fulfilled'
-            ListHandling.give_rating(self.match, rating)
-
 
     def cancel_match(self, status="Active"):
         self.match = ""
         self.status = status
+        request_list = Utilities.getHelpRequestslist()
+        Utilities.updateRequestInRequestlist(request_list, self)
 
     def addPotentialMatch(self, helper_username):
         self.potential_matches.append(helper_username)

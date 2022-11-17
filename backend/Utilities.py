@@ -36,15 +36,17 @@ def getHelpRequestslist():
     jsonList = JsonToObjectlist("data/HelpRequests.json")
     listofHelpRequests = []
     for Request in jsonList.Requests:
-        Requestinstance = HelpRequest(Request.Username,
+        Requestinstance = HelpRequest(Request.ID,
+                                      Request.Username,
                                       Request.category,
                                       Request.PLZ,
                                       Request.deadline,
                                       Request.description,
                                       Request.time_start,
                                       Request.time_end,
-                                      decode_list(Request.potential_matches).
-                                      Request.ID)
+                                      decode_list(Request.potential_matches),
+                                      Request.match
+                                      )
         listofHelpRequests.append(Requestinstance)
     return listofHelpRequests
 
@@ -83,6 +85,17 @@ def getUserlist():
         listOfUsers.append(userinstance)
     return listOfUsers
 
+def updateUserInUserlist(Userlist, changedUser):
+    for i in range(len(Userlist)):
+        if Userlist[i].username == changedUser.username:
+            Userlist[i] = changedUser
+    save(Userlist, "User", "data/User.json")
+
+def updateRequestInRequestlist(requestList, changedRequest):
+    for i in range(len(requestList)):
+        if requestList[i].id == changedRequest.id:
+            requestList[i] = changedRequest
+    save(requestList, "Requests", "data/HelpRequests.json")
 
 def customUserDecoder(UserDict):
     return namedtuple('User', UserDict.keys())(*UserDict.values())
