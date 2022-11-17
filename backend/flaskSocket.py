@@ -1,22 +1,14 @@
 from flask import Flask, render_template, request, jsonify
 import ListHandling
+import SearchCriteria
 app = Flask(__name__)
-@app.route('/')
-def hello():
-    return "Main Page"
-@app.route('/test', methods=['GET', 'POST'])
-def test():    # GET request
-    if request.method == 'GET':
-        return render_template('test.html') 
-    
-    if request.method == 'POST':
-        return request.form.get('testVariable')
-    
-@app.route('/register', methods=['GET', 'POST'])
+
+#registration
+@app.route('/server/register', methods=['GET', 'POST'])
 def registerRouting():
-    if request.method == 'POST':
-        return render_template('register.html')
-    if request.method == 'GET': #todo change get request variables
+    if request.method == 'GET':
+        return True
+    if request.method == 'POST': #todo change get request variables
         mail = request.form.get('mail')
         password = request.form.get('password')
         vorname = request.form.get('vorname')
@@ -30,49 +22,95 @@ def registerRouting():
         telefonnummer = request.form.get('telefonnummer')
         status = 'helper'
         ListHandling.register(mail, password, vorname, nachname,plz, adress, dateOfBirth, rating, info, username, telefonnummer, status) 
-        return render_template() #todo: insert html file
-@app.route('/login', methods=['GET', 'POST']) # POST request login page
+        return True
+    
+#login ready
+@app.route('/server/login', methods=['GET', 'POST'])
 def loginRouting():
     if request.method == 'GET':
-        return render_template('login.html')
+        return True
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
         login_success = ListHandling.login(email, password)
-        if login_success:
-            return "Login Successful" #todo: redirect to main page
-        else:
-            return render_template('login.html', error="Invalid Credentials") #todo: remove ERROR MESSAGE?
-@app.route('/requestHelp', methods=['GET', 'POST'])
-def requestHelp():
+        return login_success
+
+#help request  
+@app.route('/server/requestHelp', methods=['GET', 'POST'])
+def requestHelpRouting():
     if request.method == 'GET':
-        return render_template('requestHelp.html')
+        return True
     if request.method == 'POST':
         username = request.form.get('username')
         #todo: get all other variables
-        #todo: call backend function
-        return render_template('') #todo: insert html file
-@app.route('/offerHelp', methods=['GET', 'POST'])
-def offerHelp():
+        #todo: call backend request help
+        
+        return True
+    
+#help offer
+@app.route('/server/offerHelp', methods=['GET', 'POST'])
+def offerHelpRouting():
     if request.method == 'GET':
-        return render_template('offerHelp.html')
+        return True
     if request.method == 'POST':
-        username = request.form.get('username')
-        return render_template('') #todo: insert html file
+        #todo get user id and request id
+        user_id = request.form.get('user_id')
+        request_id = request.form.get('request_id')
+        ListHandling.add_offer_to_request(user_id, request_id)
+        return True
 
 
-#isHelpAccepted template
-@app.route('/isHelpAccepted', methods=['GET', 'POST'])   
+#isHelpAccepted template ready
+@app.route('/server/isHelpAccepted', methods=['GET', 'POST'])   
 def isHelpAccepted():
     if request.method == 'GET':
-        return render_template('acceptHelp.html')
+        return True
     if request.method == 'POST':
         username = request.form.get('username')
-        accepted = request.form.get('accepted')
-        if accepted == 'true':
-            return render_template('')
-        else:
-            return render_template('') #todo: insert html file
+        requestId = request.form.get('requestId')
+        ListHandling.match(requestId, username)
+        return True
+        
+#give rating ready
+@app.route('/server/giveRating', methods=['GET', 'POST'])
+def give_ratingRouting():
+    if request.method == 'GET':
+        return True
+    if request.method == 'POST':
+        username = request.form.get('username')
+        rating = request.form.get('rating')
+        ListHandling.give_rating(username, rating)
+        return True
+
+#show user list
+
+#show request list
+@app.route('/server/showRequestList', methods=['GET', 'POST'])
+def show_request_listRouting():
+    if request.method == 'GET':
+        return True
+    if request.method == 'POST':
+        username = request.form.get('username')
+        startingpoint = request.form.get('startingpoint')
+        endpoint = request.form.get('endpoint')
+        plz = request.form.get('plz')
+        categories = request.form.get('categories')
+        timeframe = request.form.get('timeframe')
+        
+        searchCriteria = SearchCriteria #todo
+        request_list = ListHandling.get_filtered_help_request_list(searchCriteria)
+        return True #todo list transfer to html file
+        
+#show offer list
+@app.route('/server/showOfferList', methods=['GET', 'POST'])
+def show_offer_listRouting():
+    if request.method == 'GET':
+        return True
+    if request.method == 'POST':
+        username = request.form.get('username')
+        #todo backend call
+        return True
+        
 
 
 if __name__ == '__main__':
