@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="/static/css/stylesheet_Reg_PW_Email.css">
+</head>
+
+<body>
+    <div id="mySidenav" class="sidenav">
+        <ul class="menu-links">
+            <li class = "nav-link">
+                <a class="active">Email und Passwort</a>
+            </li>
+            <li class = "nav-link">
+                <a href = "Registrierung_Name.html">Name</a>
+            </li>
+            <li class = "nav-link">
+                <a href="Registrierung_PLZ.html">Postleitzahl</a>
+            </li class = "nav-link">
+            <li class = "nav-link">
+                <a href="Registrierung_Geburtsdatum.html">Geburtsdatum</a>
+            </li>
+            <li class = "nav-link">
+                <a href="Registrierung_Zusammenfassung.html">Zusammenfassung</a>
+            </li>
+        </ul>
+
+    </div>
+
+
+
+<form method="POST">
+    <div class="Registrierungsformular" id="Registrierungsformular">
+        <h1 class="Text">Registrieren sie sich !</h1>
+        <br><br><br>
+        <label>E-Mail</label>
+        <input class="Text" type="text" name="email" id="email" value="" size="30" maxlength="50" margin="15 px">
+        <label>Passwort</label>
+        <input class="Text" type="password" name="password" id="password" value="" size="30" maxlength="50">
+        <label>Passwort wiederholen</label>
+        <input class="Text" type="password" name="passwordRep" id="passwordRep" value="" size="30" maxlength="50">
+        <a href="Registrierung_Name.html">
+            <button type="button" value="" onClick="access_Password()">Weiter</button>
+            <input type="reset" value="Daten zurücksetzen">
+
+        <a href="/">
+            <button type="button">Zurück zur Anmeldung</button>
+
+    </div>
+
+     <script type="text/javascript" src="https://www.pythonanywhere.com/user/PaTe/files/home/PaTe/mysite/templates/access_Inputs.js"></script>
+
+
+</form>
+
+</body>
+
+</html>
