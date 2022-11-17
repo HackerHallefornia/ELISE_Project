@@ -47,13 +47,12 @@ def requestHelpRouting():
         
         return True
     
-#help offer
+#help offer ready
 @app.route('/server/offerHelp', methods=['GET', 'POST'])
 def offerHelpRouting():
     if request.method == 'GET':
         return True
     if request.method == 'POST':
-        #todo get user id and request id
         user_id = request.form.get('user_id')
         request_id = request.form.get('request_id')
         ListHandling.add_offer_to_request(user_id, request_id)
@@ -81,8 +80,6 @@ def give_ratingRouting():
         rating = request.form.get('rating')
         ListHandling.give_rating(username, rating)
         return True
-
-#show user list
 
 #show request list
 @app.route('/server/showRequestList', methods=['GET', 'POST'])
