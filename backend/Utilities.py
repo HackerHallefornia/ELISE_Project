@@ -48,6 +48,15 @@ def getHelpRequestslist():
         listofHelpRequests.append(Requestinstance)
     return listofHelpRequests
 
+def getChatlist():
+    jsonList = JsonToObjectlist("data/Chats.json")
+    Chatslist = []
+    for Chat in jsonList.Chats:
+        Searchinstance = SearchCriteria(Chat.user1,
+                                      Chat.user2,
+                                      Chat.Id)
+        Chatslist.append(Chat)
+    return Chatslist
 
 def decode_list(stringlist):
     chunks = stringlist.split(',')
