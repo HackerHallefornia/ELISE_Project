@@ -81,7 +81,7 @@ def zsmfssg():
             email = request.form.get('email')
             return render_template('login.html', Email = email)
 
-
+"""
 @app.route('/server', methods=['POST'])
 def server():
 
@@ -90,7 +90,7 @@ def server():
 
 
     #hier später get funktion aus Json
-
+"""
 
 
 

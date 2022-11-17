@@ -23,7 +23,7 @@ function access_Geburtsdatum() {
 function writeStorage(key){
     document.write(localStorage.getItem('key'))
 }
-
+/*
 function sendData(){
 
     email = localStorage.getItem('email')
