@@ -2,6 +2,7 @@ import Utilities
 
 
 class Chat():
+
     
     def __init__(self, username1:str, username2:str, Id = ""):
         
@@ -14,16 +15,17 @@ class Chat():
     def addMessageToChat(self,message):
         self.messages.append(message)
 
-    def sendPhoneNumber():
-        """
-        returns false if no phone number saved
-        """
-        pass
+    def sendPhoneNumber(username, self):
+        if (username == self.user1):
+            self.u1_phone == "Visible"
+        if (username == self.user2):
+            self.u2_phone == "Visible"
 
-    def sendAdress():
+    def sendAdress(username, self):
         """
         returns false if no address is saved
         """
+
     def to_json(self):
         return {"user1":self.user1,
                 "user2":self.user2, 
@@ -34,8 +36,8 @@ class Chat():
 
 class Message():
     def __init__(self, sender, receiver, content, time):
+
         self.sender = sender
-        self.receiver = receiver
         self.content = content
 
 def getMessagesForChat(Chat, username):
