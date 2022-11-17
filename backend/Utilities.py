@@ -36,15 +36,15 @@ def getHelpRequestslist():
     jsonList = JsonToObjectlist("data/HelpRequests.json")
     listofHelpRequests = []
     for Request in jsonList.Requests:
-        Requestinstance = HelpRequest(Request.ID,
-                                      Request.Username,
+        Requestinstance = HelpRequest(Request.Username,
                                       Request.category,
                                       Request.PLZ,
                                       Request.deadline,
                                       Request.description,
                                       Request.time_start,
                                       Request.time_end,
-                                      decode_list(Request.potential_matches))
+                                      decode_list(Request.potential_matches).
+                                      Request.ID)
         listofHelpRequests.append(Requestinstance)
     return listofHelpRequests
 

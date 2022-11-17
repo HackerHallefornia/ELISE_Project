@@ -1,11 +1,14 @@
 import Utilities
 from SearchCriteria import SearchCriteria
 import User
+from datetime import date
 
 from pprint import pprint
 
-
-def give_rating(username, rating):
+def give_rating(username: str, rating: int):
+    """
+    give rating to a specific user
+    """
     list = Utilities.getUserlist()
     for user in list:
         if user.username == username:
@@ -13,7 +16,11 @@ def give_rating(username, rating):
             break
     Utilities.save(list)
 
-def login(email, pwd):
+def login(email:str, pwd:str):
+    """
+    log into website
+    returns false if login failed
+    """
     userList = Utilities.getUserlist()
     for u in userList:
         print(u.getEmail())
@@ -21,18 +28,28 @@ def login(email, pwd):
             return u.loginUser(pwd)
         else:
             return False
-def register(email,pwd,vorname,nachname,plz,adress,dob,bio,username,phonenumber,status):
+
+def register(email:str,pwd:str,vorname:str,nachname:str,plz:str,adress:str,dob:date,bio:str,username:str,phonenumber:str,status:str):
+    """
+    register user to website
+    """
     u = User(email,pwd,vorname,nachname,plz,adress,dob,bio,username,phonenumber,status)
     userList = Utilities.getUserlist()
     userList.append(u)
     Utilities.save(userList)
 
-def addToUserList(u):
+def addToUserList(u:User):
+    """
+    adds user to list of users and saves to json
+    """
     list = Utilities.getUserList()
     list.append(u)
     list.saveUserList()
 
-def add_offer_to_request(helper_username, request_id):
+def add_offer_to_request(helper_username:str, request_id:int):
+    """
+    add help offer as potential match to a help request
+    """
     list = Utilities.getHelpRequestslist()
     for request in list:
         if request.id == request_id:
@@ -41,6 +58,9 @@ def add_offer_to_request(helper_username, request_id):
     Utilities.save(list, 'Requests', 'data/testrequests.json')
 
 def get_filtered_help_request_list (search_criteria : SearchCriteria):
+    """
+    returns help requests list with filtered results for search criteria
+    """
     list = Utilities.getHelpRequestslist()
     filtered_list = []
     for l in list:
@@ -49,14 +69,15 @@ def get_filtered_help_request_list (search_criteria : SearchCriteria):
     return filtered_list
 
 def set_match(request_id, helper_username):
+    """
+    set match of a specific helper to a help request
+    """
     list = Utilities.getHelpRequestslist()
     for request in list:
         if request.id == request_id:
             request.setMatch(helper_username)
             break
     Utilities.save(list, 'Requests', 'data/testrequests.json')
-
-
 
 if __name__ == '__main__':
     input()

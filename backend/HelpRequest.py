@@ -1,4 +1,5 @@
 from datetime import datetime
+import ListHandling
 
 class HelpRequest():
     id = 0
@@ -13,7 +14,7 @@ class HelpRequest():
     endtime = datetime(1900,1,1)
     potential_matches = []
 
-    def __init__(self, id,username, category, plz, deadline,description ,starttime, endtime, po = [], match = '', status='Active'):
+    def __init__(self, username, category, plz, deadline,description ,starttime, endtime, po = [], match = '', status='Active', id = id()):
         self.id = id
         self.username = username
         self.category = category
@@ -45,20 +46,19 @@ class HelpRequest():
         self.status = "Matched"
 
     def complete_request(self,rating, username, user_status):
-        
         if user_status == 'Helper':
             if self.status == 'Fulfilled':
-                give_rating(self.username, rating)
+                ListHandling.give_rating(self.username, rating)
             else:
                 return False
         if user_status == 'HelpSeeker':
             self.status == 'Fulfilled'
-            give_rating(self.match, rating)
+            ListHandling.give_rating(self.match, rating)
 
 
-    def cancel_match(user_status):
-        #TODO
-        pass
+    def cancel_match(self, status="Active"):
+        self.match = ""
+        self.status = status
 
     def addPotentialMatch(self, helper_username):
         self.potential_matches.append(helper_username)
