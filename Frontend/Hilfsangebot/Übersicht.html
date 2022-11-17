@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Hilfsantrag_Menu</title>
-    <link rel="stylesheet" href="stylesheet_Tag_Uhrzeit.css">
+    <link rel="stylesheet" href="stylesheet_übersicht.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -17,20 +17,20 @@
             <button class="dropdown-btn">Hilfsantrag
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-container">
-                <a href="Kategorie.html">Aktivität-Kategorie</a>
-                <a href="#" class="active">Tag und Uhrzeit</a>
-                <a href="Treffpunkt.html">Treffpunkt</a>
-                <a href="Übersicht.html">Übersicht</a>
+            <div class="dropdown-container2">
+                <a href="../Hilfsanfrage/Kategorie.html">Aktivität-Kategorie</a>
+                <a href="../Hilfsanfrage/Tag_Uhrzeit.html">Tag und Uhrzeit</a>
+                <a href="../Hilfsanfrage/Treffpunkt.html">Treffpunkt</a>
+                <a href="#">Übersicht</a>
             </div>
             <button class="dropdown-btn">Hilfsangebot
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-container2">
+            <div class="dropdown-container">
                 <a href="../Hilfsangebot/Kategorie.html">Aktivität-Kategorie</a>
                 <a href="../Hilfsangebot/Tag_Uhrzeit.html">Tag und Uhrzeit</a>
                 <a href="../Hilfsangebot/Treffpunkt.html">Treffpunkt</a>
-                <a href="../Hilfsangebot/Übersicht.html">Übersicht</a>
+                <a href="../Hilfsangebot/Übersicht.html" class="active">Übersicht</a>
             </div>
             <li class = "nav-link">
                 <a href="Registrierung_PLZ.html">Aktivitäten in der Nachbarschaft</a>
@@ -46,15 +46,28 @@
             </li>
         </ul>
     </div>
-    <div class="Tag_Uhrzeit_Formular">
-        <h1>Wählen Sie einen Termin aus, wann sie Hilfe benötigen/anbieten.</h1>
-        <p>Wählen Sie Tag</p>
-        <input type="date" value="TT-MM-JJ" min="2022-08-01" max="2022-08-31">
-        <p>Wählen Sie die Uhrzeit</p>
-        <input type="time" id="appt" name="appt" min="09:00" max="18:00" required>
-        <a href ="Treffpunkt.html">
-            <button>Weiter</button>
-        </a>
+
+    <div class="Übersicht-Formular">
+        <h1>Sehen Sie hier die Daten zu Ihrer Anfrage im Überblick</h1>
+        <p>In diesem Schritt können Sie die von Ihnen eingegebenen Daten zu Ihrer Anfrage überprüfen</p>
+        <br>
+        <p>Folgende Aktivitäten haben Sie ausgewählt:</p>
+        <br>
+        <p>Platzhalter</p>
+        <hr>
+        <p>Folgende Termine haben Sie ausgewählt:</p>
+        <br>
+        <p>Platzhalter</p>
+        <hr>
+        <p>Folgenden Standort haben Sie ausgewählt:</p>
+        <br>
+        <p>Platzhalter</p>
+        <div class="buttons">
+            <button>Bearbeiten</button>
+            <a href="../Startseite/ServiceBereich.html">
+                <button>Abschicken</button>
+            </a>
+        </div>
     </div>
     <script>
         var dropdown = document.getElementsByClassName("dropdown-btn");

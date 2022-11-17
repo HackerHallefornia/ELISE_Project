@@ -14,7 +14,7 @@ function access_Data() {
 /*function compare_pw() {
     access_Data()
     if (access_Data()["passwort"] == access_Data()["pw_repeat"]) {
-        var x = "gut"
+        var x = "Passwörter stimmen überein"
         document.getElementById("demo").innerHTML = x
     }
 }*/

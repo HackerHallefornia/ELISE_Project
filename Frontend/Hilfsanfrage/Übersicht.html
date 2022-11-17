@@ -10,7 +10,7 @@
     <div id="mySidenav" class="sidenav">
         <ul class="menu-links">
             <li class="nav-header">Menü</li>
-            <li class="nav-header">Mein Servicebereich</li>
+            <li class="nav-header"><a href="../Startseite/ServiceBereich.html">Mein Servicebereich</li></a>
             <li class = "nav-link">
                 <a>Vermittlungsliste</a>
             </li>
@@ -22,6 +22,15 @@
                 <a href="Tag_Uhrzeit.html">Tag und Uhrzeit</a>
                 <a href="Treffpunkt.html">Treffpunkt</a>
                 <a href="#" class="active">Übersicht</a>
+            </div>
+            <button class="dropdown-btn">Hilfsangebot
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container2">
+                <a href="../Hilfsangebot/Kategorie.html">Aktivität-Kategorie</a>
+                <a href="../Hilfsangebot/Tag_Uhrzeit.html">Tag und Uhrzeit</a>
+                <a href="../Hilfsangebot/Treffpunkt.html">Treffpunkt</a>
+                <a href="../Hilfsangebot/Übersicht.html">Übersicht</a>
             </div>
             <li class = "nav-link">
                 <a href="Registrierung_PLZ.html">Aktivitäten in der Nachbarschaft</a>
@@ -36,7 +45,29 @@
                 <a>Einstellungen</p>
             </li>
         </ul>
+    </div>
 
+    <div class="Übersicht-Formular">
+        <h1>Sehen Sie hier die Daten zu Ihrer Anfrage im Überblick</h1>
+        <p>In diesem Schritt können Sie die von Ihnen eingegebenen Daten zu Ihrer Anfrage überprüfen</p>
+        <br>
+        <p>Folgende Aktivitäten haben Sie ausgewählt:</p>
+        <br>
+        <p>Platzhalter</p>
+        <hr>
+        <p>Folgende Termine haben Sie ausgewählt:</p>
+        <br>
+        <p>Platzhalter</p>
+        <hr>
+        <p>Folgenden Standort haben Sie ausgewählt:</p>
+        <br>
+        <p>Platzhalter</p>
+        <div class="buttons">
+            <button>Bearbeiten</button>
+            <a href="../Startseite/ServiceBereich.html">
+                <button>Abschicken</button>
+            </a>
+        </div>
     </div>
     <script>
         var dropdown = document.getElementsByClassName("dropdown-btn");

@@ -32,7 +32,7 @@
   .sidenav .nav-header a {
     font-size: 25px;
   }
-
+  
   .sidenav .dropdown-btn {
     height: 50px;
     margin-top: 5px;
@@ -76,18 +76,18 @@
     color: black;
   }
 
-  .Tag_Uhrzeit_Formular h1, .Tag_Uhrzeit_Formular p{
+  .Übersicht-Formular {
     text-align: center;
     margin-top: 2cm;
     margin-bottom: 1rem;
-    margin-left: 20%;
+    margin-left: 24%;
     display: block;
   }
 
-  .Tag_Uhrzeit_Formular input, .Tag_Uhrzeit_Formular button {
-    margin-left:53%;
-    height:50px;
-    width: 200px;
+  .Übersicht-Formular .buttons button {
     display: block;
-    margin-top: 30px;
+    margin-left: 43%;
+    margin-bottom: 20px;
+    width: 150px;
+    height: 50px;
   }

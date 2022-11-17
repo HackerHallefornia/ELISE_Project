@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hilfsantrag_Menu</title>
-    <link rel="stylesheet" href="Stylesheet_Hilfsantrag_menu.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet_hilfe_einkauf.css">
 </head>
 <body>
     <div id="mySidenav" class="sidenav">
@@ -14,7 +13,7 @@
             <li class = "nav-link">
                 <a>Vermittlungsliste</a>
             </li>
-            <button class="dropdown-btn">Hilfsantrag 
+            <button class="dropdown-btn">Hilfsantrag
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
@@ -22,6 +21,15 @@
                 <a href="Tag_Uhrzeit.html">Tag und Uhrzeit</a>
                 <a href="Treffpunkt.html">Treffpunkt</a>
                 <a href="Übersicht.html">Übersicht</a>
+            </div>
+            <button class="dropdown-btn">Hilfsangebot
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="../Hilfsangebot/Kategorie.html" class="active">Aktivität-Kategorie</a>
+                <a href="../Hilfsangebot/Tag_Uhrzeit.html">Tag und Uhrzeit</a>
+                <a href="../Hilfsangebot/Treffpunkt.html">Treffpunkt</a>
+                <a href="../Hilfsangebot/Übersicht.html">Übersicht</a>
             </div>
             <li class = "nav-link">
                 <a href="Registrierung_PLZ.html">Aktivitäten in der Nachbarschaft</a>
@@ -36,8 +44,25 @@
                 <a>Einstellungen</p>
             </li>
         </ul>
-
     </div>
+    <div class="Icon">
+        <h1>Wählen Sie eine Aktivität aus</h1>
+        <p>In diesem Schritt wählen Sie eine Aktivität aus. In der Sie Hilfe benötigen bzw. Hilfe anbieten möchten.</p>
+        <figure class="1_1">
+            <a href="Hilfe_beim_Einkauf.html"><img src="Icons_ELISE/hilfebeimeinkauf.svg" alt="SVG mit img laden" style="background-color: yellow;"></a>
+            <figcaption>Hilfe beim Einkauf</figcaption>
+        </figure>
+        <div class="aktivität-btn">
+            <a href="Tag_Uhrzeit.html"><button type="button">Einkauf abholen</button></a>
+            <a href="Tag_Uhrzeit.html"><button type="button">Einkauf erledigen</button></a>
+            <a href="Tag_Uhrzeit.html"><button type="button">Mit Einkaufen gehen</button></a>
+            <a href="Tag_Uhrzeit.html"><button type="button">Andere Tätigkeiten</button></a>
+            <a href="Kategorie.html">
+                <button type="button">Zurück</button>
+            </a>
+        </div>
+    </div>
+
     <script>
         var dropdown = document.getElementsByClassName("dropdown-btn");
         var i;

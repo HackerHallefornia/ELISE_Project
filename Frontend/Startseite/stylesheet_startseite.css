@@ -28,11 +28,13 @@
     outline: none;
     margin-left: 12px;
   }
-  
-  .sidenav .nav-header a {
-    font-size: 25px;
-  }
 
+  .sidenav #active{
+    background-color: white;
+    padding-top: 10px;
+    height: 50%;
+  }
+  
   .sidenav .dropdown-btn {
     height: 50px;
     margin-top: 5px;
@@ -62,11 +64,6 @@
   .dropdown-container {
     background-color: gray;
     padding-left: 8px;
-  }
-
-  .dropdown-container2 {
-    background-color: gray;
-    padding-left: 8px;
     display: none;
   }
 
@@ -76,18 +73,22 @@
     color: black;
   }
 
-  .Tag_Uhrzeit_Formular h1, .Tag_Uhrzeit_Formular p{
+  .Startseite-Formular {
     text-align: center;
     margin-top: 2cm;
     margin-bottom: 1rem;
-    margin-left: 20%;
+    margin-left: 20px;
     display: block;
   }
 
-  .Tag_Uhrzeit_Formular input, .Tag_Uhrzeit_Formular button {
-    margin-left:53%;
-    height:50px;
-    width: 200px;
+  .Startseite-Formular button {
     display: block;
-    margin-top: 30px;
+    margin-left: 35%;
+    height:50px;
+    width:350px;
+    margin-bottom: 30px;
+  }
+
+  .Startseite-Formular p {
+    margin-bottom: 30px;
   }

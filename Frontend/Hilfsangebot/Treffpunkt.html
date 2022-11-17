@@ -3,25 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Hilfsantrag_Menu</title>
-    <link rel="stylesheet" href="Stylesheet_Hilfsantrag_menu.css">
+    <link rel="stylesheet" href="stylesheet_treffpunkt.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div id="mySidenav" class="sidenav">
         <ul class="menu-links">
             <li class="nav-header">Menü</li>
-            <li class="nav-header">Mein Servicebereich</li>
+            <li class="nav-header"><a href="../Startseite/ServiceBereich.html">Mein Servicebereich</li></a>
             <li class = "nav-link">
                 <a>Vermittlungsliste</a>
             </li>
-            <button class="dropdown-btn">Hilfsantrag 
+            <button class="dropdown-btn">Hilfsantrag
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container2">
+                <a href="../Hilfsanfrage/Kategorie.html">Aktivität-Kategorie</a>
+                <a href="../Hilfsanfrage/Tag_Uhrzeit.html">Tag und Uhrzeit</a>
+                <a href="#">Treffpunkt</a>
+                <a href="../Hilfsanfrage/Übersicht.html">Übersicht</a>
+            </div>
+            <button class="dropdown-btn">Hilfsangebot
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="Kategorie.html">Aktivität-Kategorie</a>
-                <a href="Tag_Uhrzeit.html">Tag und Uhrzeit</a>
-                <a href="Treffpunkt.html">Treffpunkt</a>
-                <a href="Übersicht.html">Übersicht</a>
+                <a href="../Hilfsangebot/Kategorie.html">Aktivität-Kategorie</a>
+                <a href="../Hilfsangebot/Tag_Uhrzeit.html">Tag und Uhrzeit</a>
+                <a href="../Hilfsangebot/Treffpunkt.html" class="active">Treffpunkt</a>
+                <a href="../Hilfsangebot/Übersicht.html">Übersicht</a>
             </div>
             <li class = "nav-link">
                 <a href="Registrierung_PLZ.html">Aktivitäten in der Nachbarschaft</a>
@@ -36,7 +45,21 @@
                 <a>Einstellungen</p>
             </li>
         </ul>
-
+    </div>
+    <div class="Treffpunkt-Formular">
+        <h1>Wählen Sie einen Treffpunkt aus</h1>
+        <p>Wählen Sie einen Ort, an dem Sie Hilfe benötigen/anbieten.</p>
+        <div>
+            <input type="radio" id="html" name="fav_language" value="HTML">
+            <label>Begegnungszentrum</label>
+        </div>
+        <div>
+            <input type="radio" id="html" name="fav_language" value="HTML">
+            <label>Bei mir zu Hause</label>
+        </div>
+        <a href="Übersicht.html">
+            <button> Weiter</button>
+        </a>
     </div>
     <script>
         var dropdown = document.getElementsByClassName("dropdown-btn");
@@ -52,7 +75,6 @@
               dropdownContent.style.display = "block";
             }
           });
-        }
-    </script>
+        }</script>
 </body>
 </html>

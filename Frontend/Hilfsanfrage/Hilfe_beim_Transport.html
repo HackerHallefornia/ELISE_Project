@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hilfsantrag_Menu</title>
-    <link rel="stylesheet" href="stylesheet_Tag_Uhrzeit.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet_hilfe_transport.css">
 </head>
 <body>
     <div id="mySidenav" class="sidenav">
         <ul class="menu-links">
             <li class="nav-header">Menü</li>
-            <li class="nav-header"><a href="../Startseite/ServiceBereich.html">Mein Servicebereich</li></a>
+            <li class="nav-header">Mein Servicebereich</li>
             <li class = "nav-link">
                 <a>Vermittlungsliste</a>
             </li>
@@ -18,15 +17,15 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="Kategorie.html">Aktivität-Kategorie</a>
-                <a href="#" class="active">Tag und Uhrzeit</a>
+                <a href="Kategorie.html" class="active">Aktivität-Kategorie</a>
+                <a href="Tag_Uhrzeit.html">Tag und Uhrzeit</a>
                 <a href="Treffpunkt.html">Treffpunkt</a>
                 <a href="Übersicht.html">Übersicht</a>
             </div>
             <button class="dropdown-btn">Hilfsangebot
                 <i class="fa fa-caret-down"></i>
             </button>
-            <div class="dropdown-container2">
+            <div class="dropdown-container">
                 <a href="../Hilfsangebot/Kategorie.html">Aktivität-Kategorie</a>
                 <a href="../Hilfsangebot/Tag_Uhrzeit.html">Tag und Uhrzeit</a>
                 <a href="../Hilfsangebot/Treffpunkt.html">Treffpunkt</a>
@@ -46,16 +45,24 @@
             </li>
         </ul>
     </div>
-    <div class="Tag_Uhrzeit_Formular">
-        <h1>Wählen Sie einen Termin aus, wann sie Hilfe benötigen/anbieten.</h1>
-        <p>Wählen Sie Tag</p>
-        <input type="date" value="TT-MM-JJ" min="2022-08-01" max="2022-08-31">
-        <p>Wählen Sie die Uhrzeit</p>
-        <input type="time" id="appt" name="appt" min="09:00" max="18:00" required>
-        <a href ="Treffpunkt.html">
-            <button>Weiter</button>
-        </a>
+    <div class="Icon">
+        <h1>Wählen Sie eine Aktivität aus</h1>
+        <p>In diesem Schritt wählen Sie eine Aktivität aus. In der Sie Hilfe benötigen bzw. Hilfe anbieten möchten.</p>
+        <figure class ="1_2">
+            <a href="Hilfe_beim_Transport.html"><img src="Icons_ELISE/HilfebeimTransport.svg" alt="SVG mit img laden" style="background-color: black;"></a>
+            <figcaption>Hilfe beim Transport</figcaption>
+        </figure>
+        <div class="aktivität-btn">
+            <a href="Tag_Uhrzeit.html"><button type="button">Schwere Dinge abholen</button></a>
+            <a href="Tag_Uhrzeit.html"><button type="button">Paket/Post abholen</button></a>
+            <a href="Tag_Uhrzeit.html"><button type="button">Medikamente abholen</button></a>
+            <a href="Tag_Uhrzeit.html"><button type="button">Andere Tätigkeiten</button></a>
+            <a href="Kategorie.html">
+                <button type="button">Zurück</button>
+            </a>
+        </div>
     </div>
+
     <script>
         var dropdown = document.getElementsByClassName("dropdown-btn");
         var i;
@@ -70,6 +77,7 @@
               dropdownContent.style.display = "block";
             }
           });
-        }</script>
+        }
+    </script>
 </body>
 </html>

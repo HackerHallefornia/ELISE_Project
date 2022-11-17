@@ -29,7 +29,9 @@
     margin-left: 12px;
   }
 
-
+  .sidenav .nav-header a {
+    font-size: 25px;
+  }
   
   .sidenav .dropdown-btn {
     height: 50px;
@@ -60,6 +62,12 @@
   .dropdown-container {
     background-color: gray;
     padding-left: 8px;
+  }
+
+  .dropdown-container2 {
+    background-color: gray;
+    padding-left: 8px;
+    display: none;
   }
 
   .fa-caret-down {
