@@ -65,6 +65,7 @@ def register():
 
                 return redirect(url_for("name"))
 
+
         #elif request.form.get('startpage') == 'Zurück': einfügen Button zurück in HTML
         #    return redirect(url_for("startpage"))
 
@@ -123,6 +124,10 @@ def plz():
           if plz!="":
 
                 return redirect(url_for("geburtsdatum"))
+
+        elif request.form.get('back') == 'Zurück':
+            return redirect(url_for("name"))
+
         else:
             pass
 
