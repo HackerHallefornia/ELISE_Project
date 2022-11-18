@@ -1,0 +1,49 @@
+{
+    "User": [
+        {
+            "Username": "john_doe",
+            "Email": "john_doe@web.de",
+            "FirstName": "John",
+            "LastName": "Doe",
+            "Password": "1234567",
+            "Birthdate": "1988-09-13",
+            "Adress": "Schleiermacherstrasse 15",
+            "PLZ": "06114",
+            "Phonenumber": "0000000000000",
+            "Rating": "4.5",
+            "NumberRatings": 0,
+            "Bio": "",
+            "Status": "Helper"
+        },
+        {
+            "Username": "renee_witte",
+            "Email": "renee_witte@web.de",
+            "FirstName": "Renee",
+            "LastName": "Witte",
+            "Password": "qwertz",
+            "Birthdate": "1950-11-02",
+            "Adress": "Schopenhauerstrasse 4",
+            "PLZ": "06114",
+            "Phonenumber": "11111111111",
+            "Rating": "4.3",
+            "NumberRatings": 0,
+            "Bio": "",
+            "Status": "Helper"
+        },
+        {
+            "Username": "johannesboldt2",
+            "Email": "johannes.boldt@freenet.de",
+            "FirstName": "Johannes",
+            "LastName": "Boldt2",
+            "Password": "Passwort123",
+            "Birthdate": "1967-01-01",
+            "Adress": "Hauptstrasse 2",
+            "PLZ": "06108",
+            "Phonenumber": "110",
+            "Rating": "0",
+            "NumberRatings": 0,
+            "Bio": "Hallo, ich bins. Ich mag walks in the park.",
+            "Status": "Helper"
+        }
+    ]
+}
