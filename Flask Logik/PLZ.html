@@ -25,22 +25,21 @@
             </li>
     </div>
 
-<form method="POST">
+
     <div class="PLZ-Formular">
         <h1>Geben Sie ihre Postleitzahl ein.</h1>
         <p>Ihre Postleitzahl benötigen wir, um Sie zu lokalisieren. Damit kann ELISE in ihrer Nähe identifizieren.
             Ihre Daten werden nicht weitergegeben.
         </p>
         <label>PLZ</label>
-        <input class="Text" type="text" name="plz" id="plz" value="" size="30" maxlength="50">
-        <a href="Registrierung_Geburtsdatum.html">
-            <button type="button" value="" onClick="access_PLZ()">Weiter</button>
-        <a href="Registrierung_Name.html">
+        <form method="POST">
+        <input type="text" name="plz" size="30" maxlength="50">
+        <input type="submit" value="Weiter" name="next">
+        </form>
             <button type="button" value="">Zurück</button>
     </div>
 
-    <script type="text/javascript" src="https://www.pythonanywhere.com/user/PaTe/files/home/PaTe/mysite/templates/access_Inputs.js"></script>
 
-</form>
+
 </body>
 </html>

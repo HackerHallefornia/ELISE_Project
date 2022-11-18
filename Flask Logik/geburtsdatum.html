@@ -25,19 +25,20 @@
             </li>
         </ul>
     </div>
+
     <div class="Geburtstagsformular">
         <h1>Geben Sie Ihr Geburtsdatum ein!</h1>
         <p>Um das beste Vermittlungsergebnis zu erzielen, geben Sie bitte folgende Daten ein.</p>
         <label><strong>Geburtsdatum</strong> (Format Tag/Monat/Jahr)</label><br>
-        <input class="Text" type="text" name="geburtsdatum" id="geburtsdatum" value="" size="30" maxlength="50">
+        <form method="POST">
+        <input type="text" name="geburtsdatum" size="30" maxlength="50">
         <br>
-        <a href="Registrierung_Zusammenfassung.html">
-            <button type="button" value="" onClick="access_Geburtsdatum()">Weiter</button>
-        <a href="Registrierung_PLZ.html">
+        <input type="submit" value="Weiter" name="next">
+        </form>
             <button>Zur&uuml;ck</button>
     </div>
 
-    <script type="text/javascript" src="https://www.pythonanywhere.com/user/PaTe/files/home/PaTe/mysite/templates/access_Inputs.js"></script>
+
 
 </body>
 </html>
