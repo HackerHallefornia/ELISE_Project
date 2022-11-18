@@ -1,5 +1,5 @@
 import json
-from backend import User
+from backend.User import User
 from collections import namedtuple
 from backend.HelpRequest import HelpRequest
 from backend.SearchCriteria import SearchCriteria
