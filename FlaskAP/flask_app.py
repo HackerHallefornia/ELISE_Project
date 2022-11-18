@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify,redirect, url_for, session
-import backend.ListHandling as ListHandling
+from backend import ListHandling
 app = Flask(__name__)
 
 app.secret_key = "JohannesGoebelIstBlöd"
@@ -172,8 +172,7 @@ def zsmfssg():
        return render_template('Registrierung_Zusammenfassung.html')
 
 
-if __name__ == "__main__":
-    app.run()
+
 
 #session speichern für userdaten
 
