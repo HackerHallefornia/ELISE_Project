@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrierung_PLZ</title>
+    <link rel="stylesheet" href="/static/css/stylesheet_Reg_PLZ.css">
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <ul class="menu-links">
+            <li class = "nav-link">
+                <a href="Registrierung_Email_PW.html">Email und Passwort</a>
+            </li>
+            <li class = "nav-link">
+                <a href = "Registrierung_Name.html">Name</a>
+            </li>
+            <li class = "nav-link">
+                <a class="active" href="Registrierung_PLZ.html">Postleitzahl</a>
+            </li class = "nav-link">
+            <li class = "nav-link">
+                <a href ="Registrierung_Geburtsdatum.html">Geburtsdatum</a>
+            </li>
+            <li class = "nav-link">
+                <a href="Registrierung_Zusammenfassung.html">Zusammenfassung</a>
+            </li>
+    </div>
+
+<form method="POST">
+    <div class="PLZ-Formular">
+        <h1>Geben Sie ihre Postleitzahl ein.</h1>
+        <p>Ihre Postleitzahl benötigen wir, um Sie zu lokalisieren. Damit kann ELISE in ihrer Nähe identifizieren.
+            Ihre Daten werden nicht weitergegeben.
+        </p>
+        <label>PLZ</label>
+        <input class="Text" type="text" name="plz" id="plz" value="" size="30" maxlength="50">
+        <a href="Registrierung_Geburtsdatum.html">
+            <button type="button" value="" onClick="access_PLZ()">Weiter</button>
+        <a href="Registrierung_Name.html">
+            <button type="button" value="">Zurück</button>
+    </div>
+
+    <script type="text/javascript" src="https://www.pythonanywhere.com/user/PaTe/files/home/PaTe/mysite/templates/access_Inputs.js"></script>
+
+</form>
+</body>
+</html>

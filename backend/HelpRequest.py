@@ -15,7 +15,9 @@ class HelpRequest():
     endtime = datetime(1900,1,1)
     potential_matches = []
 
+
     def __init__(self, id, username, category, plz, deadline,description ,starttime, endtime, po = [], match = '', status='Active'):
+
         self.id = id
         self.username = username
         self.category = category
@@ -25,6 +27,7 @@ class HelpRequest():
         self.startingtime = starttime
         self.endtime = endtime
         self.potential_matches = po
+        self.status= status
         self.match = match
         self.status = status
         

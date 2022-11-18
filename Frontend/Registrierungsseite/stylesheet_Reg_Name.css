@@ -1,0 +1,64 @@
+a {
+    color: black;
+}
+
+.sidenav {
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: gray;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .sidenav ul {
+    padding: 0;
+  }
+  
+  .sidenav a {
+    display: block;
+    padding: 16px;
+    text-decoration: none;
+    font-size: 25px;
+  }
+
+  .sidenav .nav-header {
+    font-size: 25px;
+    padding-left: 10px;
+  }
+  
+  .sidenav li {
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    align-items: center;
+  }
+  
+  .sidenav li .active {
+    background-color: white;
+  }
+
+  body {
+    margin-left: 20%;
+  }
+
+  .Namenformular {
+    text-align: center;
+    margin-top: 5cm;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .Namenformular input {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 3cm;
+  }
+
+  .Namenformular a {
+    display: block;
+  }
