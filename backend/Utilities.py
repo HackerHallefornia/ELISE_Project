@@ -97,6 +97,27 @@ def updateRequestInRequestlist(requestList, changedRequest):
             requestList[i] = changedRequest
     save(requestList, "Requests", "data/HelpRequests.json")
 
+
+
+def append_list(new_obj:object, type:str):
+    """
+    parameter type is either User, SearchCriteria or Request
+    """
+    if type == "User":
+        userList = getUserlist()
+        userList.append(new_obj)
+        save(userList, "User", "data/User.json")
+    if type == "Request":
+        requestList = getHelpRequestslist
+        requestList.append(new_obj)
+        save(requestList, "Requests", "data/HelpRequests.json")
+    if type == "SearchCriteria":
+        critList = getcurrentSearches()
+        critList.append(new_obj)
+        save(critList, "Searches", "data/CurrentSearches.json")
+    
+    
+
 def customUserDecoder(UserDict):
     return namedtuple('User', UserDict.keys())(*UserDict.values())
 
