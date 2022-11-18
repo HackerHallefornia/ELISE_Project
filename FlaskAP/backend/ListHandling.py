@@ -1,4 +1,4 @@
-import Utilities
+from backend import Utilities
 from SearchCriteria import SearchCriteria
 import User
 from datetime import date

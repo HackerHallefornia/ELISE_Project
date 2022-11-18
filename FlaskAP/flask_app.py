@@ -168,7 +168,8 @@ def zsmfssg():
        return render_template('Registrierung_Zusammenfassung.html')
 
 
-
+if __name__ == "__main__":
+    app.run()
 
 #session speichern für userdaten
 
