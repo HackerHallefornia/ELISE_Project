@@ -6,18 +6,28 @@ from HelpRequest import HelpRequest
 from pprint import pprint
 
 def get_user_by_username(username:str):
-    user_list = Utilities.getUserlist
+    user_list = Utilities.getUserlist()
+    condition = False
     for user in user_list:
         if user.username == username:
+            condition = True
             break
-    return user
+    if condition:
+        return user
+    else:
+        return condition
 
 def get_help_request_by_id(id:int):
-    request_list = Utilities.getHelpRequestslist
+    request_list = Utilities.getHelpRequestslist()
+    condition = False
     for request in request_list:
         if request.id == id:
+            condition = True
             break
-    return request
+    if condition:
+        return request
+    else:
+        return condition
 
 def new_request(own_username:str, category:str, plz:str, deadline:date, starttime:date, endtime:date,description:str ):
     request = HelpRequest(id(),own_username, category, plz, deadline,  starttime, endtime, description)
@@ -72,10 +82,8 @@ def register(email:str,pwd:str,vorname:str,nachname:str,plz:str,adress:str,dob:d
     """
     register user to website
     """
-    u = User(email,pwd,vorname,nachname,plz,adress,dob,bio,username,phonenumber,status)
-    userList = Utilities.getUserlist()
-    userList.append(u)
-    Utilities.save(list, "User", "data/User.json")
+    u = User.User(email,pwd,vorname,nachname,plz,adress,dob,bio,username,phonenumber,status)
+    addToUserList(u)
 
 def addToUserList(u:User):
     """
@@ -128,7 +136,7 @@ def give_rating(username_to_rate: str, rating: int, help_request : HelpRequest):
             help_request.complete_request(rating, username_to_rate)
             break
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
 
 #     sc = Utilities.getcurrentSearches()[0]
 # #    # pprint(vars(sc))

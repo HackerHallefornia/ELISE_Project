@@ -3,6 +3,7 @@ import User
 from collections import namedtuple
 from HelpRequest import HelpRequest
 from SearchCriteria import SearchCriteria
+from Chat import Chat, Message
 #from json import JSONEncoder
 
 
@@ -17,6 +18,17 @@ def JsonToObjectlist(filepath):
     userString = loadJsonAsString(filepath)
     return json.loads(userString, object_hook=customUserDecoder)
 
+def getMessageListForChat(chatId:str):
+    filepath = "data/chats/" + chatId + ".json"
+    jsonList = JsonToObjectlist(filepath)
+    list_of_messages = []
+    for message in jsonList.Chat:
+        message_instance = Message(message.sender,
+                                message.content,
+                                message.time,
+                                message.seen)
+        list_of_messages.append(message_instance)  
+    return list_of_messages  
 
 def getcurrentSearches():
     jsonList = JsonToObjectlist("data/CurrentSearches.json")
@@ -53,11 +65,11 @@ def getHelpRequestslist():
 def getChatlist():
     jsonList = JsonToObjectlist("data/Chats.json")
     Chatslist = []
-    for Chat in jsonList.Chats:
-        Searchinstance = SearchCriteria(Chat.user1,
-                                      Chat.user2,
-                                      Chat.Id)
-        Chatslist.append(Chat)
+    for chat in jsonList.Chats:
+        ChatInstance = Chat(chat.user1,
+                            chat.user2,
+                            chat.id)
+        Chatslist.append(ChatInstance)
     return Chatslist
 
 def decode_list(stringlist):
@@ -99,9 +111,9 @@ def updateRequestInRequestlist(requestList, changedRequest):
 
 
 
-def append_list(new_obj:object, type:str):
+def append_list(new_obj:object, type:str, id:str = ""):
     """
-    parameter type is either User, SearchCriteria or Request
+    parameter type is either User, SearchCriteria or Request, Chat, Message
     """
     if type == "User":
         userList = getUserlist()
@@ -115,9 +127,16 @@ def append_list(new_obj:object, type:str):
         critList = getcurrentSearches()
         critList.append(new_obj)
         save(critList, "Searches", "data/CurrentSearches.json")
+    if type == "Chat":
+        chatList = getChatlist()
+        chatList.append(new_obj)
+        save(chatList, "Chats", "data/Chats.json")
+    if type == "Message":
+        messageList = getMessageListForChat(id)
+        messageList.append(new_obj)
+        filepath = "data/chats/" + id + ".json"
+        save(messageList, "Chat", filepath)
     
-    
-
 def customUserDecoder(UserDict):
     return namedtuple('User', UserDict.keys())(*UserDict.values())
 
@@ -127,9 +146,19 @@ def save(Objectlist, JSON_name= "User" ,  filepath="data/test.json"):
     jsdata = json.dumps({JSON_name : results}, indent=4)
     with open(filepath, 'w') as outfile:
         outfile.write(jsdata)
-
     print("Data saved")
 
+def save_empty(Objectlist, JSON_name= "User" ,  filepath="data/test.json"):
+    results = [obj.to_json() for obj in Objectlist]
+    jsdata = json.dumps({JSON_name : results}, indent=4)
+    with open(filepath, 'a+') as outfile:
+        outfile.write(jsdata)
+    print("Data saved")
+
+def createChatFile(chat:Chat):
+    filepath = "data/chats/" + chat.id + '.json'
+    list = []
+    save_empty(list, "Chat", filepath)
 
 if __name__ == "__main__":
 
