@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrierung_Zusammenfassung</title>
+    <link rel="stylesheet" href="/static/css/stylesheet_Reg_Zusammenfassung.css">
+    <script>
+
+    </script>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <ul class="menu-links">
+            <li class = "nav-link">
+                <a href="Registrierung_Email_PW.html">Email und Passwort</a>
+            </li>
+            <li class = "nav-link">
+                <a href = "Registrierung_Name.html">Name</a>
+            </li>
+            <li class = "nav-link">
+                <a href="Registrierung_PLZ.html">Postleitzahl</a>
+            </li class = "nav-link">
+            <li class = "nav-link">
+                <a href="Registrierung_Geburtsdatum.html">Geburtsdatum</a>
+            </li>
+            <li class = "nav-link">
+                <a class="active">Zusammenfassung</a>
+            </li>
+    </div>
+
+<form method="POST">
+    <div class="Zusammenfassungsformular">
+        <h1>Zusammenfassung Ihrer angegebenen Daten</h1>
+        <p>Überprüfen Sie bitte ihre persönlichen Daten. Wenn Ihre Daten nicht korrekt <br> eingegeben wurden, dann haben Sie
+            nun die Möglichkeit diese zu bearbeiten. <br> Drücken Sie hierfür die Taste "Daten bearbeiten" und
+            korrigieren Sie gegebenenfalls.</p>
+        <ul>
+            <li>E-Mail: <script>document.write(localStorage.getItem('email'))</script></li> <!--todo: funktion aus js einbinden-->
+            <li>Vorname: <script>document.write(localStorage.getItem('vorname'))</script></li>
+            <li>Nachname: <script>document.write(localStorage.getItem('nachname'))</script></li>
+            <li>Postleitzahl: <script>document.write(localStorage.getItem('plz'))</script></li>
+            <!--<li>Wohnort: <script>document.write(localStorage.getItem('email'))</script></li>-->
+            <li>Geburtsdatum: <script>document.write(localStorage.getItem('geburtsdatum'))</script></li>
+        </ul>
+        <a href="login.html">
+            <button type="button" value="" onClick="sendData()">Weiter</button>
+            <br>
+            <button>Daten bearbeiten</button>
+    </div>
+
+    <script type="text/javascript" src="https://www.pythonanywhere.com/user/PaTe/files/home/PaTe/mysite/templates/access_Inputs.js"></script>
+
+</form>
+
+</body>
+</html>
