@@ -20,21 +20,19 @@ a {
   
   .sidenav a {
     display: block;
-    padding: 16px;
+    padding-left: 30px;
     text-decoration: none;
     font-size: 25px;
   }
-  
+  .sidenav .nav-header {
+    font-size: 25px;
+    padding-left: 10px;
+  }
   .sidenav li {
     height: 50px;
     margin-top: 10px;
     list-style: none;
     align-items: center;
-  }
-
-  .sidenav .nav-header {
-    font-size: 25px;
-    padding-left: 10px;
   }
   
   .sidenav li .active {
@@ -45,14 +43,26 @@ a {
     margin-left: 20%;
   }
 
-  .Geburtstagsformular {
+  .Zusammenfassungsformular {
     text-align: center;
     margin-top: 5cm;
     margin-bottom: 1rem;
     display: block;
   }
 
-  .Geburtstagsformular a {
-    display: block;
-    margin-top: 5px;
+  .Zusammenfassungsformular p {
+    font-size: large;
   }
+
+  .Zusammenfassungsformular ul {
+    list-style: none;
+  }
+
+  .Zusammenfassungsformular ul li {
+    margin-top: 10px;
+    margin-left: -35%;
+  }
+  .Zusammenfassungsformular button {
+    margin-top: 10px;
+  }
+  
