@@ -1,8 +1,8 @@
 import json
-import User
+from backend.User import User
 from collections import namedtuple
-from HelpRequest import HelpRequest
-from SearchCriteria import SearchCriteria
+from backend.HelpRequest import HelpRequest
+from backend.SearchCriteria import SearchCriteria
 #from json import JSONEncoder
 
 
@@ -19,13 +19,13 @@ def JsonToObjectlist(filepath):
 
 
 def getcurrentSearches():
-    jsonList = JsonToObjectlist("data/CurrentSearches.json")
+    jsonList = JsonToObjectlist("/home/PaTe/mysite/data/CurrentSearches.json")
     listofSearches = []
     for Search in jsonList.Searches:
         Searchinstance = SearchCriteria(Search.Username,
                                       Search.time_start,
                                       Search.time_end,
-                                      Search.PLZ,
+                                      decode_list(Search.PLZ),
                                       decode_list(Search.categories),
                                       Search.timeframe)
         listofSearches.append(Searchinstance)
@@ -33,7 +33,7 @@ def getcurrentSearches():
 
 
 def getHelpRequestslist():
-    jsonList = JsonToObjectlist("data/HelpRequests.json")
+    jsonList = JsonToObjectlist("/home/PaTe/mysite/data/HelpRequests.json")
     listofHelpRequests = []
     for Request in jsonList.Requests:
         Requestinstance = HelpRequest(Request.ID,
@@ -51,7 +51,7 @@ def getHelpRequestslist():
     return listofHelpRequests
 
 def getChatlist():
-    jsonList = JsonToObjectlist("data/Chats.json")
+    jsonList = JsonToObjectlist("/home/PaTe/mysite/data/Chats.json")
     Chatslist = []
     for Chat in jsonList.Chats:
         Searchinstance = SearchCriteria(Chat.user1,
@@ -66,7 +66,7 @@ def decode_list(stringlist):
 
 
 def getUserlist():
-    jsonList = JsonToObjectlist("data/User.json")
+    jsonList = JsonToObjectlist("/home/PaTe/mysite/data/User.json")
     listOfUsers = []
     for user in jsonList.User:
         userinstance = User.User(user.Email,
@@ -89,13 +89,13 @@ def updateUserInUserlist(Userlist, changedUser):
     for i in range(len(Userlist)):
         if Userlist[i].username == changedUser.username:
             Userlist[i] = changedUser
-    save(Userlist, "User", "data/User.json")
+    save(Userlist, "User", "/home/PaTe/mysite/data/User.json")
 
 def updateRequestInRequestlist(requestList, changedRequest):
     for i in range(len(requestList)):
         if requestList[i].id == changedRequest.id:
             requestList[i] = changedRequest
-    save(requestList, "Requests", "data/HelpRequests.json")
+    save(requestList, "Requests", "/home/PaTe/mysite/data/HelpRequests.json")
 
 def customUserDecoder(UserDict):
     return namedtuple('User', UserDict.keys())(*UserDict.values())
@@ -123,5 +123,6 @@ if __name__ == "__main__":
     # save(requestlist, "Requests", "data/testrequests.json")
     searches = getcurrentSearches()
     print(searches[0].categories)
+    print(searches[0].plz)
     print(searches[0].to_json())
     save(searches, "Searches", "data/testsearches.json")

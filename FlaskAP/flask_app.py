@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify,redirect, url_for, session
-from backend import ListHandling
+import backend.ListHandling as ListHandling
 app = Flask(__name__)
 
 app.secret_key = "JohannesGoebelIstBlöd"
@@ -24,8 +24,9 @@ def loginReg():
        if request.form.get('login') == 'Anmelden':
            username = request.form["nutzer"]
            password = request.form["password"]
-           session["username"]= username
+
            if ListHandling.login(username, password) == True:
+                session["username"]= username
                 return redirect(url_for("startpage"))
            else:
                 return render_template('login.html')
@@ -54,12 +55,13 @@ def register():
           email = request.form["email"]
           passwordReg = request.form["passwordReg"]
           passwordRep = request.form["passwordRep"]
-          session["email"]= email
-          session["passwordReg"]= passwordReg
-          session["passwordRep"]= passwordRep
-          if (email!="") or (passwordReg!="") or (passwordRep!=""):
 
-                return redirect(url_for("name"))
+          if (passwordReg == passwordRep) and (email!= ""):
+              session["password"]= passwordReg
+              session["email"]= email
+              return redirect(url_for("name"))
+          else:
+              return render_template('Registrierung_Email_PW.html')
         else:
             pass
 
@@ -81,11 +83,10 @@ def name():
         if request.form.get('next') == 'Weiter':
           vorname = request.form["vorname"]
           nachname = request.form["nachname"]
-          session["vorname"]= vorname
-          session["nachname"]= nachname
           if (vorname!="") or (nachname!=""):
-
-                return redirect(url_for("plz"))
+            session["vorname"]= vorname
+            session["nachname"]= nachname
+            return redirect(url_for("plz"))
         else:
             pass
 
@@ -159,8 +160,11 @@ def zsmfssg():
     if request.method == 'POST':
 
         if request.form.get('end') == 'Daten senden':
-                # Utilities.enterUser()
-                return render_template('ServiceBereich.html')
+            # pwd= session["]
+            # ListHandling.register(email,
+
+            #     )
+            return render_template('ServiceBereich.html')
         else:
             pass
 

@@ -19,7 +19,7 @@ class SearchCriteria():
     def to_json(self):
       return {"Username":self.username, 
             "categories":",".join(self.categories), 
-            "PLZ":self.plz,
+            "PLZ":",".join(self.categories),
             "time_start":self.startingpoint,
             "time_end":self.endpoint,
             "timeframe":self.timeframe}
@@ -27,7 +27,7 @@ class SearchCriteria():
 
     def compare_to_help_request(self, help_request):
         if self.username == help_request.username:
-            if self.plz == help_request.plz:
+            if help_request.plz in self.plz:
                 if self.categories == help_request.categories:
                     if self.startingpoint > help_request.startingpoint:
                         if help_request.timeframe == True:
