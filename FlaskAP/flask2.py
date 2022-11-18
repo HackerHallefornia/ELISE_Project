@@ -1,4 +1,10 @@
 from flask import Flask, render_template, request, jsonify,redirect, url_for, session
+import backend.Chat
+import backend.HelpRequest
+import backend.ListHandling
+import backend.SearchCriteria
+import backend.User
+import backend.Utilities
 
 app = Flask(__name__)
 
@@ -24,8 +30,8 @@ def loginReg():
            username = request.form["nutzer"]
            password = request.form["password"]
            session["username"]= username
-           if username != "":
-       # logik einloggen
+           login_success = backend.ListHandling.login(username, password)
+           if login_success:
                 return redirect(url_for("startpage"))
 
        elif request.form.get('register') == 'Registrieren':
