@@ -2,10 +2,12 @@ from flask import Flask, render_template, request, jsonify,redirect, url_for, se
 
 app = Flask(__name__)
 
+app.secret_key = "JohannesGoebelIstBlöd"
+
 @app.route("/home")
 def startpage():
-    value = "test"
-    return render_template('ServiceBereich.html', poopy= value)
+    value = session["username"]
+    return render_template('ServiceBereich.html', ownUserName= value)
 
 
 @app.route("/")
@@ -17,14 +19,20 @@ def home():
 def loginReg():
 
    if request.method == 'POST':
-       username = request.form["nutzer"]
-       password = request.form["password"]
-       #session["username"]= username
-       if username != "":
+
+       if request.form.get('login') == 'Anmelden':
+           username = request.form["nutzer"]
+           password = request.form["password"]
+           session["username"]= username
+           if username != "":
        # logik einloggen
-            return redirect(url_for("startpage"))
+                return redirect(url_for("startpage"))
+
+       elif request.form.get('register') == 'Registrieren':
+            return redirect(url_for("register"))
        else:
             pass
+
    else:
        return render_template('login.html')
 
@@ -32,9 +40,9 @@ def loginReg():
 
 
 @app.route('/Registrierung', methods=['GET', 'POST'])
-def emailPw():
+def register():
 
-    #if request.method == 'GET':
+    if request.method == 'GET':
         return render_template('Registrierung_Email_PW.html')
 
 """
