@@ -58,6 +58,11 @@ def register():
           if (email!="") or (passwordReg!="") or (passwordRep!=""):
 
                 return redirect(url_for("name"))
+
+        #elif request.form.get('startpage') == 'Zurück': einfügen Button zurück in HTML
+        #    return redirect(url_for("startpage"))
+
+
         else:
             pass
 
@@ -84,6 +89,11 @@ def name():
           if (vorname!="") or (nachname!=""):
 
                 return redirect(url_for("plz"))
+
+        elif request.form.get('back') == 'Zurück':
+            return redirect(url_for("register"))
+
+
         else:
             pass
 
