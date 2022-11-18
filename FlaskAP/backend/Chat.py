@@ -1,4 +1,4 @@
-import backend.Utilities
+import backend.Utilities as Utilities
 
 
 class Chat():

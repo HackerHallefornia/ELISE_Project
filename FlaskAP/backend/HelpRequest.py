@@ -1,6 +1,6 @@
 from datetime import datetime
-import backend.ListHandling
-import backend.Utilities
+import backend.ListHandling as ListHandling
+import backend.Utilities as Utilities
 
 class HelpRequest():
     id = 0
