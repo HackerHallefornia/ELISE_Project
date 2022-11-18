@@ -1,22 +1,37 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify,redirect, url_for, session
 
 app = Flask(__name__)
 
-@app.route('/data', methods=['GET', 'POST'])
-def login():
-    return "True"
+@app.route("/home")
+def startpage():
+    value = "test"
+    return render_template('ServiceBereich.html', poopy= value)
 
+
+@app.route("/")
+def home():
+    return redirect(url_for("loginReg"))
 
 
 @app.route('/login.html', methods=['GET', 'POST'])
 def loginReg():
 
-   # if request.method == 'GET':
-    return render_template('login.html')
+   if request.method == 'POST':
+       username = request.form["nutzer"]
+       password = request.form["password"]
+       #session["username"]= username
+       if username != "":
+       # logik einloggen
+            return redirect(url_for("startpage"))
+       else:
+            pass
+   else:
+       return render_template('login.html')
 
 
 
-@app.route('/Registrierung_Email_PW.html', methods=['GET', 'POST'])
+
+@app.route('/Registrierung', methods=['GET', 'POST'])
 def emailPw():
 
     #if request.method == 'GET':
@@ -31,7 +46,7 @@ def emailPw():
 """
 
 
-@app.route('/Registrierung_Name.html', methods=['GET', 'POST'])
+@app.route('/Registrierung_Name', methods=['GET', 'POST'])
 def name():
 
 
@@ -45,7 +60,7 @@ def name():
 
 """
 
-@app.route('/Registrierung_PLZ.html', methods=['GET', 'POST'])
+@app.route('/Registrierung_PLZ', methods=['GET', 'POST'])
 def plz():
 
 
@@ -57,7 +72,7 @@ def plz():
         return render_template('Registrierung_Geburtsdatum.html')
 """
 
-@app.route('/Registrierung_Geburtsdatum.html', methods=['GET', 'POST'])
+@app.route('/Registrierung_Geburtsdatum', methods=['GET', 'POST'])
 def geburtsdatum():
 
     #if request.method == 'GET':
@@ -72,7 +87,7 @@ def geburtsdatum():
 
 
 
-@app.route('/Registrierung_Zusammenfassung.html', methods=['GET', 'POST'])
+@app.route('/Registrierung_Zusammenfassung', methods=['GET', 'POST'])
 def zsmfssg():
 
         return render_template('Registrierung_Zusammenfassung.html')
@@ -80,6 +95,14 @@ def zsmfssg():
         if request.method == 'POST':
             email = request.form.get('email')
             return render_template('login.html', Email = email)
+
+
+
+
+
+#session speichern für userdaten
+
+
 
 """
 @app.route('/server', methods=['POST'])
