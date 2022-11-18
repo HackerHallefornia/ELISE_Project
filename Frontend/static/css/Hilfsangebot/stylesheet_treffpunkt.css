@@ -106,3 +106,8 @@
     margin-bottom: 20px;
     display: block;
   }
+
+  .Treffpunkt-Formular button {
+    height: 50px;
+    width: 150px;
+  }
