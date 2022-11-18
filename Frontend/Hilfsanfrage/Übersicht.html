@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hilfsantrag_Menu</title>
+    <link rel="stylesheet" href="stylesheet_übersicht.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <ul class="menu-links">
+            <li class="nav-header">Menü</li>
+            <li class="nav-header"><a href="../Startseite/ServiceBereich.html">Mein Servicebereich</li></a>
+            <li class = "nav-link">
+                <a>Vermittlungsliste</a>
+            </li>
+            <button class="dropdown-btn">Hilfsantrag
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="Kategorie.html">Aktivität-Kategorie</a>
+                <a href="Tag_Uhrzeit.html">Tag und Uhrzeit</a>
+                <a href="Treffpunkt.html">Treffpunkt</a>
+                <a href="#" class="active">Übersicht</a>
+            </div>
+            <button class="dropdown-btn">Hilfsangebot
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container2">
+                <a href="../Hilfsangebot/Kategorie.html">Aktivität-Kategorie</a>
+                <a href="../Hilfsangebot/Tag_Uhrzeit.html">Tag und Uhrzeit</a>
+                <a href="../Hilfsangebot/Treffpunkt.html">Treffpunkt</a>
+                <a href="../Hilfsangebot/Übersicht.html">Übersicht</a>
+            </div>
+            <li class = "nav-link">
+                <a href="Registrierung_PLZ.html">Aktivitäten in der Nachbarschaft</a>
+            </li class = "nav-link">
+            <li class = "nav-link">
+                <a>Bewertungen</a>
+            </li>
+            <li class = "nav-link">
+                <a>Posteingang</p>
+            </li>
+            <li class = "nav-link">
+                <a>Einstellungen</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="Übersicht-Formular">
+        <h1>Sehen Sie hier die Daten zu Ihrer Anfrage im Überblick</h1>
+        <p>In diesem Schritt können Sie die von Ihnen eingegebenen Daten zu Ihrer Anfrage überprüfen</p>
+        <br>
+        <p>Folgende Aktivitäten haben Sie ausgewählt:</p>
+        <br>
+        <p>Platzhalter</p>
+        <hr>
+        <p>Folgende Termine haben Sie ausgewählt:</p>
+        <br>
+        <p>Platzhalter</p>
+        <hr>
+        <p>Folgenden Standort haben Sie ausgewählt:</p>
+        <br>
+        <p>Platzhalter</p>
+        <div class="buttons">
+            <button>Bearbeiten</button>
+            <a href="../Startseite/ServiceBereich.html">
+                <button>Abschicken</button>
+            </a>
+        </div>
+    </div>
+    <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }</script>
+</body>
+</html>

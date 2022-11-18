@@ -1,0 +1,41 @@
+.login-formular {
+    text-align: center;
+    margin-top: 2cm;
+    margin-bottom: 1rem;
+    margin-left: 20%;
+    display: block;
+}
+
+.login-formular button {
+    display: block;
+    margin-left: 40%;
+}
+
+.login-formular button {
+    height:50px;
+    width: 20%;
+}
+
+.sidenav {
+    height: 100%;
+    width: 23%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: gray;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+
+  .sidenav img {
+    width: 60%;
+    height: 10%;;
+    top: 0;
+    left: 0;
+  }
+
+
+  .login-formular h1, .login-formular p, .login-formular input, .login-formular button {
+    margin-bottom: 4%;
+  }
