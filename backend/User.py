@@ -1,6 +1,6 @@
 from datetime import date
-import ListHandling
-import Utilities
+from backend import ListHandling
+from backend import Utilities
 
 class User:
     email = ""
@@ -29,12 +29,12 @@ class User:
         self.status =st
         self.number_rating = nr
         self.rating = r
-        
+
 
     def to_json(self):
       return {"Username":self.username,
-     "Email":self.email, 
-     "FirstName":self.vorname, 
+     "Email":self.email,
+     "FirstName":self.vorname,
      "LastName":self.nachname,
      "Password": self.password ,
      "Birthdate":self.dob,
@@ -43,15 +43,15 @@ class User:
      "Phonenumber":self.phonenumber,
      "Rating":self.rating,
      "NumberRatings":self.number_rating,
-     "Bio":self.bio ,  
+     "Bio":self.bio ,
      "Status":self.status}
 
     def getEmail(self):
         return self.email
-    
+
     def getPassword(self, p):
         return self.password
-    
+
     def loginUser(self, p):
         if self.password == p:
             return True
@@ -60,7 +60,7 @@ class User:
     def sendHelpOffer(self, id):
         if(self.status == "Helper"):
             ListHandling.add_offer_to_request(self.username, id)
-    
+
     def give_rating(self, new_rating):
             self.rating = compute_new_rating(self.number_rating, self.rating, new_rating)
             self.number_rating = int(self.number_rating) + 1

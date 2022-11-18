@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet_hilfe_transport.css">
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <ul class="menu-links">
+            <li class="nav-header">Menü</li>
+            <li class="nav-header">Mein Servicebereich</li>
+            <li class = "nav-link">
+                <a>Vermittlungsliste</a>
+            </li>
+            <button class="dropdown-btn">Hilfsantrag
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="Kategorie.html" class="active">Aktivität-Kategorie</a>
+                <a href="Tag_Uhrzeit.html">Tag und Uhrzeit</a>
+                <a href="Treffpunkt.html">Treffpunkt</a>
+                <a href="Übersicht.html">Übersicht</a>
+            </div>
+            <button class="dropdown-btn">Hilfsangebot
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="../Hilfsangebot/Kategorie.html">Aktivität-Kategorie</a>
+                <a href="../Hilfsangebot/Tag_Uhrzeit.html">Tag und Uhrzeit</a>
+                <a href="../Hilfsangebot/Treffpunkt.html">Treffpunkt</a>
+                <a href="../Hilfsangebot/Übersicht.html">Übersicht</a>
+            </div>
+            <li class = "nav-link">
+                <a href="Registrierung_PLZ.html">Aktivitäten in der Nachbarschaft</a>
+            </li class = "nav-link">
+            <li class = "nav-link">
+                <a>Bewertungen</a>
+            </li>
+            <li class = "nav-link">
+                <a>Posteingang</p>
+            </li>
+            <li class = "nav-link">
+                <a>Einstellungen</p>
+            </li>
+        </ul>
+    </div>
+    <div class="Icon">
+        <h1>Wählen Sie eine Aktivität aus</h1>
+        <p>In diesem Schritt wählen Sie eine Aktivität aus. In der Sie Hilfe benötigen bzw. Hilfe anbieten möchten.</p>
+        <figure class ="1_2">
+            <a href="Hilfe_beim_Transport.html"><img src="Icons_ELISE/HilfebeimTransport.svg" alt="SVG mit img laden" style="background-color: black;"></a>
+            <figcaption>Hilfe beim Transport</figcaption>
+        </figure>
+        <div class="aktivität-btn">
+            <a href="Tag_Uhrzeit.html"><button type="button">Schwere Dinge abholen</button></a>
+            <a href="Tag_Uhrzeit.html"><button type="button">Paket/Post abholen</button></a>
+            <a href="Tag_Uhrzeit.html"><button type="button">Medikamente abholen</button></a>
+            <a href="Tag_Uhrzeit.html"><button type="button">Andere Tätigkeiten</button></a>
+            <a href="Kategorie.html">
+                <button type="button">Zurück</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+    </script>
+</body>
+</html>
