@@ -1,8 +1,8 @@
-import Utilities
-from SearchCriteria import SearchCriteria
-import User
+import backend.Utilities
+from backend.SearchCriteria import SearchCriteria
+import backend.User
 from datetime import date
-from HelpRequest import HelpRequest
+from backend.HelpRequest import HelpRequest
 
 from pprint import pprint
 

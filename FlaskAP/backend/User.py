@@ -1,6 +1,6 @@
 from datetime import date
-import ListHandling
-import Utilities
+import backend.ListHandling
+import backend.Utilities
 
 class User:
     email = ""
