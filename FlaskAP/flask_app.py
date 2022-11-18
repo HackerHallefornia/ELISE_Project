@@ -1,11 +1,5 @@
 from flask import Flask, render_template, request, jsonify,redirect, url_for, session
-import backend.Chat
-import backend.HelpRequest
-import backend.ListHandling
-import backend.SearchCriteria
-import backend.User
-import backend.Utilities
-
+from backend import ListHandling
 app = Flask(__name__)
 
 app.secret_key = "JohannesGoebelIstBlöd"
@@ -23,16 +17,18 @@ def home():
 
 @app.route('/login.html', methods=['GET', 'POST'])
 def loginReg():
-
+   if request.method == 'GET':
+         return render_template('login.html')
    if request.method == 'POST':
 
        if request.form.get('login') == 'Anmelden':
            username = request.form["nutzer"]
            password = request.form["password"]
            session["username"]= username
-           login_success = backend.ListHandling.login(username, password)
-           if login_success:
+           if ListHandling.login(username, password) == True:
                 return redirect(url_for("startpage"))
+           else:
+                return render_template('login.html')
 
        elif request.form.get('register') == 'Registrieren':
             return redirect(url_for("register"))
@@ -64,11 +60,6 @@ def register():
           if (email!="") or (passwordReg!="") or (passwordRep!=""):
 
                 return redirect(url_for("name"))
-
-        #elif request.form.get('startpage') == 'Zurück': einfügen Button zurück in HTML
-        #    return redirect(url_for("startpage"))
-
-
         else:
             pass
 
@@ -95,11 +86,6 @@ def name():
           if (vorname!="") or (nachname!=""):
 
                 return redirect(url_for("plz"))
-
-        elif request.form.get('back') == 'Zurück':
-            return redirect(url_for("register"))
-
-
         else:
             pass
 
@@ -158,16 +144,32 @@ def geburtsdatum():
 def zsmfssg():
 
     if request.method == 'GET':
-        return render_template('Registrierung_Zusammenfassung.html')
+        email = session["email"]
+        vorname = session["vorname"]
+        nachname = session["nachname"]
+        plz = session["plz"]
+        geburtsdatum = session["geburtsdatum"]
+        return render_template('Registrierung_Zusammenfassung.html'
+        , Email = email
+        , Vorname = vorname
+        , Nachname = nachname
+        , Postleitzahl = plz
+        , Geburtsdatum = geburtsdatum)
 
     if request.method == 'POST':
-            email = request.form.get('email')
-            return render_template('login.html', Email = email)
+
+        if request.form.get('end') == 'Daten senden':
+                # Utilities.enterUser()
+                return render_template('ServiceBereich.html')
+        else:
+            pass
+
+    else:
+       return render_template('Registrierung_Zusammenfassung.html')
 
 
 
-if __name__ == "__main__":
-    app.run()
+
 #session speichern für userdaten
 
 
@@ -175,6 +177,14 @@ if __name__ == "__main__":
 """
 @app.route('/server', methods=['POST'])
 def server():
+
     return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
+
+
+
     #hier später get funktion aus Json
 """
+
+
+
+
