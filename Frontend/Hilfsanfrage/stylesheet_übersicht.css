@@ -31,6 +31,7 @@
   
   .sidenav .nav-header a {
     font-size: 25px;
+    padding-left: 0px;
   }
 
   .sidenav .dropdown-btn {
@@ -39,11 +40,26 @@
     font-size: 20px;
   }
 
-  .sidenav .nav-header {
-    font-size: 25px;
+  .sidenav ul {
     padding-left: 10px;
   }
+
+  .sidenav .nav-header {
+    font-size: 25px;
+    padding-left: 0px;
+  }
+
+  .sidenav img {
+    width: 60%;
+    height: 10%;;
+    top: 0;
+    left: 0;
+  }
   
+  .sidenav li.nav-link a{
+    font-size: 22px;
+  }
+
   .sidenav li {
     height: 50px;
     margin-top: 10px;

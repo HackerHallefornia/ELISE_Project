@@ -28,11 +28,23 @@
     outline: none;
     margin-left: 12px;
   }
+
+  .sidenav li.nav-link a{
+    font-size: 22px;
+  }
+
   
   .sidenav .dropdown-btn {
     height: 50px;
     margin-top: 5px;
     font-size: 20px;
+  }
+
+  .sidenav img {
+    width: 60%;
+    height: 10%;;
+    top: 0;
+    left: 0;
   }
 
   .sidenav .nav-header {

@@ -10,9 +10,21 @@
     padding-top: 20px;
   }
   
+  .sidenav img {
+    width: 60%;
+    height: 10%;;
+    top: 0;
+    left: 0;
+  }
+  
   .sidenav ul {
     padding: 0;
   }
+
+  .sidenav li.nav-link a{
+    font-size: 22px;
+  }
+
   
   .sidenav a, .dropdown-btn {
     padding: 6px 8px 6px 16px;

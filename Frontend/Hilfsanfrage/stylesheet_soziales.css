@@ -75,6 +75,17 @@
     margin-left: 10px;
     display: block;
   }
+  .sidenav li.nav-link a{
+    font-size: 22px;
+  }
+
+
+  .sidenav img {
+    width: 60%;
+    height: 10%;;
+    top: 0;
+    left: 0;
+  }
 
   .Icon img {
     height: 150px;

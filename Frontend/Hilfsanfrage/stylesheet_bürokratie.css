@@ -41,7 +41,16 @@
     font-size: 25px;
     padding-left: 10px;
   }
-  
+  .sidenav li.nav-link a{
+    font-size: 22px;
+  }
+
+  .sidenav img {
+    width: 60%;
+    height: 10%;;
+    top: 0;
+    left: 0;
+  }
   .sidenav li {
     height: 50px;
     margin-top: 10px;

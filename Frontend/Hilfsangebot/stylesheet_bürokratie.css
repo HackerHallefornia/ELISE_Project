@@ -9,6 +9,17 @@
     overflow-x: hidden;
     padding-top: 20px;
   }
+
+  .sidenav img {
+    width: 60%;
+    height: 10%;;
+    top: 0;
+    left: 0;
+  }
+  .sidenav li.nav-link a{
+    font-size: 22px;
+  }
+
   
   .sidenav ul {
     padding: 0;

@@ -11,8 +11,12 @@
   }
   
   .sidenav ul {
-    padding: 0;
+    padding-left: 10px;
   }
+  .sidenav li.nav-link a{
+    font-size: 22px;
+  }
+
   
   .sidenav a, .dropdown-btn {
     padding: 6px 8px 6px 16px;
@@ -31,8 +35,13 @@
 
   .sidenav .nav-header a {
     font-size: 25px;
+    padding-left: 0px;
   }
   
+  .sidenav li.nav-link a{
+    font-size: 22px;
+  }
+
   .sidenav .dropdown-btn {
     height: 50px;
     margin-top: 5px;
@@ -41,9 +50,16 @@
 
   .sidenav .nav-header {
     font-size: 25px;
-    padding-left: 10px;
+    padding-left: 0px;
   }
   
+  .sidenav img {
+    width: 60%;
+    height: 10%;;
+    top: 0;
+    left: 0;
+  }
+
   .sidenav li {
     height: 50px;
     margin-top: 10px;
