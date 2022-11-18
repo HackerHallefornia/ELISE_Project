@@ -150,8 +150,8 @@ def zsmfssg():
 
 
 
-
-
+if __name__ == "__main__":
+    app.run()
 #session speichern für userdaten
 
 
