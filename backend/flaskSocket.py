@@ -3,7 +3,7 @@ import ListHandling
 import SearchCriteria
 app = Flask(__name__)
 
-#registration
+#registration ready
 @app.route('/server/register', methods=['GET', 'POST'])
 def registerRouting():
     if request.method == 'GET':
