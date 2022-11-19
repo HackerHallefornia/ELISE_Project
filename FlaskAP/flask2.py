@@ -149,6 +149,10 @@ def geburtsdatum():
           if geburtsdatum!="":
 
                 return redirect(url_for("zsmfssg"))
+
+        elif request.form.get('back') == 'Zurück':
+            return redirect(url_for("plz"))
+
         else:
             pass
 
@@ -162,12 +166,29 @@ def geburtsdatum():
 @app.route('/Registrierung_Zusammenfassung', methods=['GET', 'POST'])
 def zsmfssg():
 
+    #muss noch angepasst werden, bisher nur grober Überblick
+    # wurde bisher nur copy pasted
+    #html auch noch ändern von zsmfssg
+
     if request.method == 'GET':
         return render_template('Registrierung_Zusammenfassung.html')
 
     if request.method == 'POST':
-            email = request.form.get('email')
-            return render_template('login.html', Email = email)
+        if request.form.get('next') == 'Weiter':
+          geburtsdatum = request.form["geburtsdatum"]
+          session["geburtsdatum"]= geburtsdatum
+          if geburtsdatum!="":
+
+                return redirect(url_for("zsmfssg"))
+
+        elif request.form.get('back') == 'Zurück':
+            return redirect(url_for("geburtsdatum"))
+
+        else:
+            pass
+
+    else:
+       return render_template('Registrierung_Zusammenfassung.html')
 
 
 

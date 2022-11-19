@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, jsonify,redirect, url_for, se
 from backend import ListHandling
 app = Flask(__name__)
 
+#copy paste aus flask2.py der zurückfunktionen 
+
 app.secret_key = "JohannesGoebelIstBlöd"
 
 @app.route("/home")
@@ -87,6 +89,10 @@ def name():
             session["vorname"]= vorname
             session["nachname"]= nachname
             return redirect(url_for("plz"))
+
+        elif request.form.get('back') == 'Zurück':
+            return redirect(url_for("register"))
+
         else:
             pass
 
@@ -110,6 +116,10 @@ def plz():
           if plz!="":
 
                 return redirect(url_for("geburtsdatum"))
+
+        elif request.form.get('back') == 'Zurück':
+            return redirect(url_for("name"))
+
         else:
             pass
 
@@ -131,6 +141,10 @@ def geburtsdatum():
           if geburtsdatum!="":
 
                 return redirect(url_for("zsmfssg"))
+
+        elif request.form.get('back') == 'Zurück':
+            return redirect(url_for("plz"))
+
         else:
             pass
 
@@ -172,7 +186,8 @@ def zsmfssg():
        return render_template('Registrierung_Zusammenfassung.html')
 
 
-
+if __name__ == "__main__":
+    app.run()
 
 #session speichern für userdaten
 
