@@ -207,7 +207,57 @@ def offer_help():
 
 @app.route('/Hilfsgesuch_erstellen', methods=['GET', 'POST'])       
 def hilfe():
-    return render_template('Kategorie.html')
+
+     if request.method == 'GET':
+
+        return render_template('Kategorie.html')
+
+     if request.method == 'POST':   
+
+        if request.form.get('Auswahl') == 'Hilfe beim Einkauf':
+            session["Kategorie"]= "Hilfe beim Einkauf"
+            return redirect(url_for("taguhrzeit"))
+
+        if request.form.get('Auswahl') == 'Hilfe beim Transport':
+            session["Kategorie"]= "Hilfe beim Transport"
+            return redirect(url_for("taguhrzeit"))
+
+        if request.form.get('Auswahl') == 'Unterstützung im Haushalt':
+            session["Kategorie"]= "Unterstützung im Haushalt"
+            return redirect(url_for("taguhrzeit"))
+
+        if request.form.get('Auswahl') == 'Begleitung zum Termin':
+            session["Kategorie"]= "Begleitung zum Termin"
+            return redirect(url_for("taguhrzeit"))
+
+        if request.form.get('Auswahl') == 'Hilfe mit dem Haustier':
+            session["Kategorie"]= "Hilfe mit dem Haustier"
+            return redirect(url_for("taguhrzeit"))
+
+        if request.form.get('Auswahl') == 'Technische Probleme':
+            session["Kategorie"]= "Technische Probleme"           
+            return redirect(url_for("taguhrzeit"))
+
+        if request.form.get('Auswahl') == 'Soziales und Kultur':
+            session["Kategorie"]= "Soziales und Kultur"
+            return redirect(url_for("taguhrzeit"))
+
+        if request.form.get('Auswahl') == 'Handwerkliche Hilfe':
+            session["Kategorie"]= "Handwerkliche Hilfe"
+            return redirect(url_for("taguhrzeit"))
+
+        if request.form.get('Auswahl') == 'Bürokratie':
+            session["Kategorie"]= "Bürokratie"             
+            return redirect(url_for("taguhrzeit"))
+   
+
+@app.route('/TagUhrzeit', methods=['GET', 'POST'])       
+def taguhrzeit():
+
+    if request.method == 'GET':
+        return render_template("Tag_Uhrzeit.html")
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)

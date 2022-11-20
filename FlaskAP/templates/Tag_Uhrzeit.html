@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hilfsantrag_Menu</title>
+    <link rel="stylesheet" href="/static/css/Hilfsangebot/stylesheet_Tag_Uhrzeit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <img class="logo" src="/static/img/Logo_final.svg">
+        <ul class="menu-links">
+            <li class="nav-header">Menü</li>
+            <li class="nav-header"><a href="/Startseite/ServiceBereich.html">Mein Servicebereich</li></a>
+            <li class = "nav-link">
+                <a href="/Vermittlungsliste/Vermittlungsliste.html">Vermittlungsliste</a>
+            </li>
+            <button class="dropdown-btn">Hilfsantrag
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container2">
+                <a href="/Hilfsanfrage/Kategorie.html">Aktivität-Kategorie</a>
+                <a href="#">Tag und Uhrzeit</a>
+                <a href="/Hilfsanfrage/Treffpunkt.html">Treffpunkt</a>
+                <a href="/Hilfsanfrage/Übersicht.html">Übersicht</a>
+            </div>
+            <button class="dropdown-btn">Hilfsangebot
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="/Hilfsangebot/Kategorie.html">Aktivität-Kategorie</a>
+                <a href="/Hilfsangebot/Tag_Uhrzeit.html" class="active">Tag und Uhrzeit</a>
+                <a href="/Hilfsangebot/Treffpunkt.html">Treffpunkt</a>
+                <a href="/Hilfsangebot/Übersicht.html">Übersicht</a>
+            </div>
+            <li class = "nav-link">
+                <a href="Registrierung_PLZ.html">Aktivitäten in der Nachbarschaft</a>
+            </li class = "nav-link">
+            <li class = "nav-link">
+                <a>Bewertungen</a>
+            </li>
+            <li class = "nav-link">
+                <a>Posteingang</p>
+            </li>
+            <li class = "nav-link">
+                <a>Einstellungen</p>
+            </li>
+        </ul>
+    </div>
+    <div class="Tag_Uhrzeit_Formular">
+        <h1>Wählen Sie einen Termin aus, wann sie Hilfe benötigen/anbieten.</h1>
+        <p>Wählen Sie Tag</p>
+        <input type="date" value="TT-MM-JJ" min="2022-08-01" max="2022-08-31">
+        <p>Wählen Sie die Uhrzeit</p>
+        <input type="time" id="appt" name="appt" min="09:00" max="18:00" required>
+        <a href ="Treffpunkt.html">
+            <button>Weiter</button>
+        </a>
+    </div>
+    <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }</script>
+</body>
+</html>
