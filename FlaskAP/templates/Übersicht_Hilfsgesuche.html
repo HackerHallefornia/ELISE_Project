@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/Startseite/stylesheet_startseite.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Mein Servicebereich</title>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <img class="logo" src="/static/img/Logo_final.svg">
+        <ul class="menu-links">
+            <li class="nav-header">Menü</li>
+            <li class="nav-header" id="active">Mein Servicebereich</li>
+            <li class = "nav-link">
+                <a href="/Vermittlungsliste/Vermittlungsliste.html">Vermittlungsliste</a>
+            </li>
+            <button class="dropdown-btn">Hilfsantrag
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="/Hilfsanfrage/Kategorie.html">Aktivität-Kategorie</a>
+                <a href="/Hilfsanfrage/Tag_Uhrzeit.html">Tag und Uhrzeit</a>
+                <a href="/Hilfsanfrage/Treffpunkt.html">Treffpunkt</a>
+                <a href="/Hilfsanfrage/Übersicht.html">Übersicht</a>
+            </div>
+            <button class="dropdown-btn">Hilfsangebot
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="/Hilfsangebot/Kategorie.html">Aktivität-Kategorie</a>
+                <a href="/Hilfsangebot/Tag_Uhrzeit.html">Tag und Uhrzeit</a>
+                <a href="/Hilfsangebot/Treffpunkt.html">Treffpunkt</a>
+                <a href="/Hilfsangebot/Übersicht.html">Übersicht</a>
+            </div>
+            <li class = "nav-link">
+                <a href="Registrierung_PLZ.html">Aktivitäten in der Nachbarschaft</a>
+            </li class = "nav-link">
+            <li class = "nav-link">
+                <a>Bewertungen</a>
+            </li>
+            <li class = "nav-link">
+                <a href="/Posteingang/Posteingang.html">Posteingang</p>
+            </li>
+            <li class = "nav-link">
+                <a>Einstellungen</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="Startseite-Formular">
+        <h1>Mein Servicebereich</h1>
+        <p>In diesem Bereich können Sie auf alle Funktionen Ihres Kontos zugreifen</p>
+        <a href="/Vermittlungsliste/Vermittlungsliste.html">
+            <button type="Button" href="">Vermittlungsliste</button>
+        </a>
+        <a href="/Hilfsanfrage/Kategorie.html">
+            <button type="Button" >Eine Hilfsanfrage erstellen</button>
+        </a>
+        <a href="/Hilfsangebot/Kategorie.html">
+            <button type="Button" >Eine Hilfsangebot erstellen</button>
+        </a>
+        <a href="/Posteingang/Posteingang.html">
+            <button>Posteingang</button>
+        </a>
+        <button type="Button" >Aktivitäten in der Nachbarschaft </button>
+        <button type="Button" >Bewertungen</button>
+    </div>
+
+    <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+        
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }</script>
+</body>
