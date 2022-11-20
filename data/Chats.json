@@ -1,0 +1,19 @@
+{
+    "Chats": [
+        {
+            "user1": "john_doe@web.de",
+            "user2": "Erna",
+            "id": "815557821084"
+        },
+        {
+            "user1": "emma",
+            "user2": "annemarie",
+            "id": "127213012946"
+        },
+        {
+            "user1": "konrad",
+            "user2": "elma",
+            "id": "725410534465"
+        }
+    ]
+}
