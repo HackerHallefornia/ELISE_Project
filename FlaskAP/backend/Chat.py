@@ -1,57 +1,42 @@
-import backend.Utilities as Utilities
-
+from datetime import time, datetime
 
 class Chat():
 
     
-    def __init__(self, username1:str, username2:str, Id = ""):
+    def __init__(self, username1:str, username2:str, id = ""):
         
         self.user1 = username1
         self.user2 = username2
-        self.id = Id
+        self.id = id
         if self.id == "":
-            self.id = str(hash(username1+username1))[1:13]
-            
-    def addMessageToChat(self,message):
-        self.messages.append(message)
-
-    def sendPhoneNumber(username, self):
-        if (username == self.user1):
-            self.u1_phone == "Visible"
-        if (username == self.user2):
-            self.u2_phone == "Visible"
-
-    def sendAdress(username, self):
-        """
-        returns false if no address is saved
-        """
+            self.id = str(hash(username1+username2))[1:13]
 
     def to_json(self):
         return {"user1":self.user1,
                 "user2":self.user2, 
-                "self.id":self.id
+                "id":self.id
                 }
 
         
 
 class Message():
-    def __init__(self, sender, receiver, content, time):
+    def __init__(self, sender, content, time:datetime , seen=False):
 
         self.sender = sender
         self.content = content
+        self.time = time
+        self.seen = seen
 
-def getMessagesForChat(Chat, username):
-    #TODO
-    pass
+    def to_json(self):
+        return {
+            "sender": self.sender,
+            "content": self.content,
+            "time": str(self.time),
+            "seen": self.seen
+        }
 
-def getChatsForUser():
-    #TODO
-    pass
 
+
+            
 if __name__ == '__main__':
-    
-    chat1 = Chat("johnnyboi", "elma")
-    print(chat1.id)
-    Chatlist = [chat1, Chat("emma", "annemarie")]
-    Utilities.save(Chatlist,"Chats", "data/Chats.json")
-    
+    print(get_new_messages_for_user("konrad"))

@@ -4,8 +4,8 @@ class SearchCriteria():
     startingpoint = datetime(1900,1,1,12,0)
     endpoint = datetime(1900,1,1,12,0)
     timeframe = False
-    plz = ""
-    categories = ""
+    plz = []
+    categories = []
     
     def __init__(self,u, s,e,p,c, t):
         self.username = u

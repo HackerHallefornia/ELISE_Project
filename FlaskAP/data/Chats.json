@@ -3,12 +3,17 @@
         {
             "user1": "johnnyboi",
             "user2": "elma",
-            "self.id": "815557821084"
+            "id": "815557821084"
         },
         {
             "user1": "emma",
             "user2": "annemarie",
-            "self.id": "127213012946"
+            "id": "127213012946"
+        },
+        {
+            "user1": "konrad",
+            "user2": "elma",
+            "id": "725410534465"
         }
     ]
 }

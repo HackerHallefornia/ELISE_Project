@@ -3,7 +3,7 @@
         {
             "Username": "john_doe",
             "categories": "social,transport",
-            "PLZ": "06114",
+            "PLZ": "social,transport",
             "time_start": "2022/12/01 12:00:00",
             "time_end": "2022/12/04 12:00:00",
             "timeframe": "True"

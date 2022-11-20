@@ -10,7 +10,7 @@
             "time_start": "2022/12/03 15:00:00",
             "time_end": "2022/12/03 15:00:00",
             "description": "Ich will Schach spielen.",
-            "potential_matches": "Username1,Username2,john_doe,john_doe,john_doe",
+            "potential_matches": "Username1,Username2",
             "match": "",
             "status": "Active"
         }

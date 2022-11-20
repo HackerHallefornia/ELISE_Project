@@ -1,0 +1,16 @@
+{
+    "Chat": [
+        {
+            "sender": "johnnyboi",
+            "content": "Wie kann ich sie am besten erreichen?",
+            "time": "2022-02-18 12:36:16.691168",
+            "seen": "True"
+        },
+        {
+            "sender": "johnnyboi",
+            "content": "MfG Johnnyboi",
+            "time": "2021-02-18 12:36:16.691168",
+            "seen": "False"
+        }
+    ]
+}

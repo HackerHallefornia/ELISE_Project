@@ -2,11 +2,160 @@ from backend import Utilities
 from backend.SearchCriteria import SearchCriteria
 from backend.User import User
 from datetime import date
-from backend.HelpRequest import HelpRequest
-
-from pprint import pprint
 
 
+def get_chat_id_by_usernames(username1:str, username2:str):
+    chatList= Utilities.getChatlist()
+    for chat in chatList:
+        if (username1 == chat.user1 or username1 == chat.user2):
+            if (username2 == chat.user1 or username2 == chat.user2):
+                u = chat
+    try:
+        return u.id
+    except NameError:
+        return False
+def get_messages_for_chat(username1, username2):
+    """
+    returns all Messages for chat between two users, returns False if it does not exist
+    """
+    chat_id = get_chat_id_by_usernames(username1, username2)
+    return Utilities.getMessageListForChat(chat_id)
+
+def get_new_messages_for_chat(username1, username2):
+    """
+    returns all unseen Messages for chat between two users
+    """
+    message_list = get_messages_for_chat(username1, username2)
+    unseen_messages = []
+    for message in message_list:
+        if message.seen == False:
+            unseen_messages.append(message)
+    return unseen_messages
+
+def get_new_messages_for_user(username):
+    chats = get_chats_for_user(username)
+    new_messages = []
+    for chat in chats:
+        new_messages_chat = get_new_messages_for_chat(chat.user1, chat.user2)
+        list_element = [chat, new_messages_chat]
+        new_messages.append(list_element)
+    return new_messages
+
+def get_chats_for_user(username):
+    """
+    TODO
+    returns all chat_ids of a user
+    """
+    chatList= Utilities.getChatlist()
+    chat_id_list = []
+    for chat in chatList:
+        if(username == chat.user1) or (username == chat.user2):
+            chat_id_list.append(chat.id)
+    return chat_id_list
+
+def new_chat(username_sender:str, username_receiver:str):
+    """
+    creates new chat from two usernames
+    """
+    chat = Chat(username_sender, username_receiver)
+    Utilities.append_list(chat, "Chat")
+    Utilities.createChatFile(chat)
+
+
+
+def send_message(username_sender:str, username_receiver:str, content:str):
+    """
+    send message from sender to receiver. If chat does not exist, net chat gets created
+    """
+    chat = get_chat_id_by_usernames(username_sender, username_receiver)
+    print(chat)
+    if chat == False:
+        new_chat(username_sender, username_receiver)
+    chat = get_chat_id_by_usernames(username_sender, username_receiver)
+    message = Message(username_sender, content, datetime.now())
+    Utilities.append_list(message, "Message", chat)
+        
+def sendPhoneNumber(sender, receiver):
+    """
+    returns false if no phone number is saved
+    """
+    user = get_user_by_username(sender)
+    if user == False:
+        return user
+    else:
+        Chat.send_message(sender, receiver, "Meine Telefonnummer ist" + str(user.phonenumber))
+        return True
+
+def sendAdress(sender, receiver):
+    """
+    returns false if no address is saved
+    """
+    user = get_user_by_username(sender)
+    if user == False:
+        return user
+    else:
+        send_message(sender, receiver, "Meine Adresse ist" + str(user.adress))
+        return True
+
+def get_user_by_username(username:str):
+    user_list = Utilities.getUserlist()
+    condition = False
+    for user in user_list:
+        if user.username == username:
+            condition = True
+            break
+    if condition:
+        return user
+    else:
+        return condition
+
+def get_help_request_by_id(id:int):
+    request_list = Utilities.getHelpRequestslist()
+    condition = False
+    for request in request_list:
+        if request.id == id:
+            condition = True
+            break
+    if condition:
+        return request
+    else:
+        return condition
+
+def new_request(own_username:str, category:str, plz:str, deadline:date, starttime:date, endtime:date,description:str ):
+    request = HelpRequest(id(),own_username, category, plz, deadline,  starttime, endtime, description)
+    Utilities.append_list(request, "Request")
+
+def new_search_criterium(own_username:str, potential_starttime:date, potential_endtime:date, plz, categories):
+    crit = SearchCriteria(own_username, potential_starttime, potential_endtime, plz, categories, t=True)
+    Utilities.append_list(crit, "SearchCriteria")
+
+def get_potential_matches_for_user(username):
+    """
+    returns list of [help_request, [potential_matches]]
+    """
+    request_list = Utilities.getHelpRequestslist()
+    help_requests_from_user = []
+    for request in request_list:
+        if request.username == username:
+            potential_matches = get_potential_matches_for_request(request)
+            req_with_matches = [request, potential_matches]
+            help_requests_from_user.append(req_with_matches)
+    return help_requests_from_user
+
+def get_potential_matches_for_request(request_id):
+    """
+    returns list of helpers
+    """
+    return get_help_request_by_id(request_id).potential_matches
+
+
+def get_profile(username):
+    """
+    returns username and bio
+    """
+    #TODO interests
+    user = get_user_by_username(username)
+    return [user.username, user.bio]
 
 def login(email:str, pwd:str):
     """
