@@ -268,7 +268,43 @@ def taguhrzeit():
     if request.method == 'GET':
         return render_template("Tag_Uhrzeit.html")
 
+    if request.method == 'POST':
 
+        if request.form.get('next') == 'Weiter':
+          date = request.form["date"]
+          time = request.form["time"]
+          if (date!="") or (time!=""):
+            session["date"]= date
+            session["time"]= time
+            return redirect(url_for("treffpunkt"))
+
+@app.route('/Treffpunkt', methods=['GET', 'POST'])       
+def treffpunkt():
+
+    if request.method == 'GET':
+        return render_template("Treffpunkt.html")
+
+    if request.method == 'POST':
+
+        if request.form.get('next') == 'Weiter':
+          treffpunkt = request.form["plz"]
+          if (treffpunkt!="") :
+            session["treffpunkt"]= treffpunkt
+            return redirect(url_for("uebersicht"))
+
+@app.route('/Übersicht', methods=['GET', 'POST'])       
+def uebersicht():
+
+    if request.method == 'GET':
+        kategorie = session["Kategorie"]
+        date = session["date"]
+        time = session["time"]
+        treffpunkt = session["treffpunkt"]
+        return render_template("Übersicht.html"
+        , Kategorie = kategorie
+        , Date = date
+        , Time = time
+        , Treffpunkt = treffpunkt)
 
 if __name__ == "__main__":
     app.run(debug=True)

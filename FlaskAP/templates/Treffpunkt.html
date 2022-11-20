@@ -48,34 +48,14 @@
         </ul>
     </div>
     <div class="Treffpunkt-Formular">
+        <form  method="POST">
         <h1>Wählen Sie einen Treffpunkt aus</h1>
         <p>Wählen Sie einen Ort, an dem Sie Hilfe benötigen/anbieten.</p>
-        <div>
-            <input type="radio" id="html" name="fav_language" value="HTML">
-            <label>Begegnungszentrum</label>
-        </div>
-        <div>
-            <input type="radio" id="html" name="fav_language" value="HTML">
-            <label>Bei mir zu Hause</label>
-        </div>
-        <a href="Übersicht.html">
-            <button> Weiter</button>
-        </a>
-    </div>
-    <script>
-        var dropdown = document.getElementsByClassName("dropdown-btn");
-        var i;
-        
-        for (i = 0; i < dropdown.length; i++) {
-          dropdown[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var dropdownContent = this.nextElementSibling;
-            if (dropdownContent.style.display === "block") {
-              dropdownContent.style.display = "none";
-            } else {
-              dropdownContent.style.display = "block";
-            }
-          });
-        }</script>
+        <label>PLZ</label>
+        <form method="POST">
+        <input type="text" name="plz" size="30" maxlength="50">
+        <input type="submit" value="Weiter" name="next">
+        </form>
+
 </body>
 </html>
