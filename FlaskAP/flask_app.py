@@ -6,7 +6,17 @@ from datetime import datetime
 app = Flask(__name__)
 
 app.secret_key = "4b0dda699e6179fc0125c49ba3116be57145d44f"
-
+@app.route('/Posteingang', methods = ["POST", "GET"])
+def posteingang():
+    if request.method == "GET":
+        if "user" in session:
+            chatlist = get_chats_for_user(session["user"])
+            return render_template("Posteingang_Menu.html", chatlist = chatlist)
+        else:
+             redirect(url_for("login"))
+    if request.method == "POST":
+        name = request.form["hidden_name"]
+        return redirect(url_for("inbox", name=name))
 @app.route("/Posteingang/<name>", methods= ["POST", "GET"])
 def inbox(name):
     #unser username ist email

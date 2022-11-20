@@ -44,13 +44,15 @@ def get_new_messages_for_user(username):
 def get_chats_for_user(username):
     """
     TODO
-    returns all chat_ids of a user
+    returns all chat_ids + chatpartner of a user
     """
     chatList= Utilities.getChatlist()
     chat_id_list = []
     for chat in chatList:
-        if(username == chat.user1) or (username == chat.user2):
-            chat_id_list.append(chat.id)
+        if(username == chat.user1):
+            chat_id_list.append([chat.id, chat.user2])
+        if (username == chat.user2):
+            chat_id_list.append([chat.id, chat.user1])
     return chat_id_list
 
 def new_chat(username_sender:str, username_receiver:str):
