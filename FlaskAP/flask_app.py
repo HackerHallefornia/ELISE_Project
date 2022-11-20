@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request, jsonify,redirect, url_for, session
 from backend import ListHandling
+from backend import Utilities
+from backend.SearchCriteria import SearchCriteria
+from datetime import datetime
 app = Flask(__name__)
 
 app.secret_key = "4b0dda699e6179fc0125c49ba3116be57145d44f"
@@ -41,10 +44,12 @@ def loginReg():
 
        if request.form.get('login') == 'Anmelden':
            username = request.form["nutzer"]
-           password = request.form["password"]
 
-           if ListHandling.login(username, password) == True:
-                session["username"]= username
+           password = request.form["password"]
+           Login_var = ListHandling.login(username, password)
+           if Login_var[0] == True:
+
+                session["username"]= Login_var[1]
                 return redirect(url_for("startpage"))
            else:
                 return render_template('login.html')
@@ -195,15 +200,21 @@ def offer_help():
     if request.method == 'POST':
 
         mocklist = ["Annemarie", "Peter", "Jonathan"]
+        search_object_mock= SearchCriteria("john_doe", datetime(2022,1,1,12,0), datetime(2022,12,20,12,0),"06114","social",True)
 
         if request.form.get('submit_search') == 'suchen':
-            return render_template('Hilfsanbieten_Menu.html', Helpseekers=mocklist)
-
-        # EIntragen von Suchkriterien
-
-        # passende einträge von der JSON ziehen
-
-        # diese auf der Seite anzeigen
+            # EIntragen von Suchkriterien
+            startdate = datetime.strptime(request.form['startdate'],'%Y-%m-%d')
+            enddate = datetime.strptime(request.form['enddate'],'%Y-%m-%d')
+            plz = request.form['zipcode']
+            cat = Utilities.html_category_import(request.form['category'])
+            search_object = SearchCriteria("john_doe", startdate, enddate, plz, cat, True)
+            fitting_helpseekers_list = ListHandling.get_filtered_help_request_list(search_object)
+            format_name_for_display = [fitting_helpseekers_list[0].username]
+            return render_template('Hilfsanbieten_Menu.html', Helpseekers=format_name_for_display)
+        if request.form.get('submit_antrag') != '':
+            to_print = request.form.get('submit_antrag')
+            return to_print
 
 @app.route('/Hilfsgesuch_erstellen', methods=['GET', 'POST'])       
 def hilfe():
