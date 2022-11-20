@@ -7,6 +7,7 @@ from Chat import Chat, Message
 #from json import JSONEncoder
 
 
+
 def loadJsonAsString(filepath):
     with open(filepath, "r") as read_file:
         data = json.load(read_file)
@@ -171,8 +172,4 @@ if __name__ == "__main__":
     # print(requestlist[0].potential_matches)
     # print(requestlist[0].to_json())
     # save(requestlist, "Requests", "data/testrequests.json")
-    searches = getcurrentSearches()
-    print(searches[0].categories)
-    print(searches[0].plz)
-    print(searches[0].to_json())
-    save(searches, "Searches", "data/testsearches.json")
+    print(getMessageListForChat("815557821084"))
