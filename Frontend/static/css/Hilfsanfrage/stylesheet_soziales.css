@@ -1,0 +1,108 @@
+.sidenav {
+    height: 100%;
+    width: 23%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: gray;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .sidenav ul {
+    padding: 0;
+  }
+  
+  .sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    border: none;
+    background: none;
+    width:100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    margin-left: 12px;
+  }
+
+
+  
+  .sidenav .dropdown-btn {
+    height: 50px;
+    margin-top: 5px;
+    font-size: 20px;
+  }
+
+  .sidenav .nav-header {
+    font-size: 25px;
+    padding-left: 10px;
+  }
+  
+  .sidenav li {
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .sidenav .dropdown-container .active{
+    background-color: white;
+  }
+  
+  a {
+    color: black;
+  }
+
+  .dropdown-container {
+    background-color: gray;
+    padding-left: 8px;
+  }
+
+  .fa-caret-down {
+    float: right;
+    padding-right: 8px;
+    color: black;
+  }
+
+  .Icon {
+    text-align: center;
+    margin-top: 2cm;
+    margin-bottom: 1rem;
+    margin-left: 10px;
+    display: block;
+  }
+  .sidenav li.nav-link a{
+    font-size: 22px;
+  }
+
+
+  .sidenav img {
+    width: 60%;
+    height: 10%;;
+    top: 0;
+    left: 0;
+  }
+
+  .Icon img {
+    height: 150px;
+    width: 150px;
+    
+  }
+
+  .Icon p, .Icon h1 {
+    text-align: left;
+    margin-left: 30%;
+    margin-bottom: 30px;
+  }
+
+  .Icon .aktivität-btn button {
+    display: block;
+    margin-left: 45%;
+    margin-bottom: 10px;
+    height: 50px;
+    width: 200px;
+  }

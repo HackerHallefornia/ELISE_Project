@@ -1,0 +1,158 @@
+.sidenav {
+    height: 100%;
+    width: 23%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: gray;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .sidenav ul {
+    padding: 0;
+  }
+
+  .sidenav ul {
+    padding-left: 10px;
+  }
+  
+  .sidenav .nav-header a {
+    font-size: 25px;
+    padding-left: 0px;
+  }
+  .sidenav li.nav-link a{
+    font-size: 22px;
+  }
+  .sidenav .logo {
+    width: 60%;
+    height: 10%;;
+    top: 0;
+    left: 0;
+  }
+  
+  .sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    border: none;
+    background: none;
+    width:100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    margin-left: 12px;
+  }
+
+  .sidenav .active{
+    background-color: white;
+    padding-top: 10px;
+    height: 50%;
+  }
+  
+  .sidenav .dropdown-btn {
+    height: 50px;
+    margin-top: 5px;
+    font-size: 20px;
+  }
+
+  .sidenav .nav-header {
+    font-size: 25px;
+    padding-left: 0px;
+  }
+  
+  .sidenav li {
+    height: 50px;
+    margin-top: 10px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .sidenav .dropdown-container .active{
+    background-color: white;
+  }
+  
+  a {
+    color: black;
+  }
+
+  .dropdown-container {
+    background-color: gray;
+    padding-left: 8px;
+    display: none;
+  }
+
+  .fa-caret-down {
+    float: right;
+    padding-right: 8px;
+    color: black;
+  }
+
+  .Post-Formular {
+    text-align: center;
+    margin-top: 2cm;
+    margin-bottom: 1rem;
+    margin-left: 20%;
+    display: block;
+  }
+
+  .Post-Formular li{
+    list-style: none;
+    height: 550px;
+    width: 80%;
+    padding-bottom:15%;
+    background-color:white;
+    border: 5px solid black;
+    margin-left: 13%;
+    margin-bottom: 20px;
+
+  }
+
+  .Post-Formular button {
+    margin-top: 5%;
+    height: 40px;
+    width: 70px;
+    margin-bottom: 10px;
+  }
+
+  .Post-Formular li .textfeld {
+    list-style: none;
+    height: 450px;
+    width: 60%;
+    padding-bottom:10%;
+    background-color:white;
+    border: 5px solid black;
+    margin-left: 19%;
+    margin-bottom: 20px;
+    overflow:auto
+  }
+
+  .Post-Formular li.nachricht-absender {
+    list-style: none;
+    height: 50px;
+    width: 30%;
+    padding-bottom:10%;
+    background-color:white;
+    border: 5px solid black;
+    margin-left: 59%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    overflow:auto
+  }
+
+  .Post-Formular li.nachricht-empfänger {
+    list-style: none;
+    height: 50px;
+    width: 30%;
+    padding-bottom:10%;
+    background-color:white;
+    border: 5px solid black;
+    margin-left: 5%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    overflow:auto
+  }
+

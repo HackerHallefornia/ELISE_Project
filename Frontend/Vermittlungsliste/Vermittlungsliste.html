@@ -2,17 +2,20 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="stylesheet_vermittlung.css">
+    <link rel="stylesheet" href="/static/css/Vermittlung/stylesheet_vermittlung.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Meine Vermittlungsvorschläge</title>
     <!--<link rel="stylesheet" href="Vermittlungsliste.css"> -->
     
 </head>
 <body>
     <div id="mySidenav" class="sidenav">
+        <img class="logo" src="/static/img/Logo_final.svg">
         <ul class="menu-links">
             <li class="nav-header">Menü</li>
             <li class="nav-header">
-                <a href="../Startseite/ServiceBereich.html">Mein Servicebereich</li></a>
+                <a href="/Startseite/ServiceBereich.html">Mein Servicebereich</a>
+            </li>
             <li class = "nav-link">
                 <a href="" class="active">Vermittlungsliste</a>
             </li>
@@ -20,19 +23,19 @@
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="../Hilfsanfrage/Kategorie.html">Aktivität-Kategorie</a>
-                <a href="../Hilfsanfrage/Tag_Uhrzeit.html">Tag und Uhrzeit</a>
-                <a href="../Hilfsanfrage/Treffpunkt.html">Treffpunkt</a>
-                <a href="../Hilfsanfrage/Übersicht.html">Übersicht</a>
+                <a href="/Hilfsanfrage/Kategorie.html">Aktivität-Kategorie</a>
+                <a href="/Hilfsanfrage/Tag_Uhrzeit.html">Tag und Uhrzeit</a>
+                <a href="/Hilfsanfrage/Treffpunkt.html">Treffpunkt</a>
+                <a href="/Hilfsanfrage/Übersicht.html">Übersicht</a>
             </div>
             <button class="dropdown-btn">Hilfsangebot
                 <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-container">
-                <a href="../Hilfsangebot/Kategorie.html">Aktivität-Kategorie</a>
-                <a href="../Hilfsangebot/Tag_Uhrzeit.html">Tag und Uhrzeit</a>
-                <a href="../Hilfsangebot/Treffpunkt.html">Treffpunkt</a>
-                <a href="../Hilfsangebot/Übersicht.html">Übersicht</a>
+                <a href="/Hilfsangebot/Kategorie.html">Aktivität-Kategorie</a>
+                <a href="/Hilfsangebot/Tag_Uhrzeit.html">Tag und Uhrzeit</a>
+                <a href="/Hilfsangebot/Treffpunkt.html">Treffpunkt</a>
+                <a href="/Hilfsangebot/Übersicht.html">Übersicht</a>
             </div>
             <li class = "nav-link">
                 <a href="Registrierung_PLZ.html">Aktivitäten in der Nachbarschaft</a>
@@ -41,7 +44,7 @@
                 <a>Bewertungen</a>
             </li>
             <li class = "nav-link">
-                <a>Posteingang</p>
+                <a href="/Posteingang/Posteingang.html">Posteingang</p>
             </li>
             <li class = "nav-link">
                 <a>Einstellungen</p>
@@ -50,22 +53,25 @@
     </div>
     <div class="Vermittlung-Formular">
         <h1>Meine Vermittlungsvorschläge</h1>
-        <h5>In der Vermittlungsliste unten bekommen Sie die besten Vorschläge von Helfer*innen, die Sie bei
+        <h5>In der Vermittlungsliste unten bekommen Sie die besten Vorschläge von Helfer*innen, <br> die Sie bei
             ihrer gewünschten Aktivität unterstützen. </h5>
-        <!-- 
-        <a href="#">Profilbild</a>
-        <a href="#">Benutzername</a>
-        <a href="#">Profilbeschreibung</a>
-        <a href="#">Bewertung</a> 
-    
-        <script></script>  
-        -->
-        <a href="#">
-            <button>Weiter zum Profil</button>
-        </a>
-        <a href="#">
-            <button>Angebot akzeptieren</button>
-        </a> 
+
+        <div class="liste">
+            <ul>
+                <li>
+                    <div class="list-text">
+                        <p>test</p>
+                    </div>
+                    <div class="list-button">
+                        <button>Weiter</button>
+                        <button>Angebot akzeptieren</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <button class="nav-button">Weiter zum Profil</button>
+        <button class="nav-button">Angebot akzeptieren</button>
     </div>
 
     <script>
