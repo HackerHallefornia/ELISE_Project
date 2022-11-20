@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hilfsantrag_Menu</title>
+    <link rel="stylesheet" href="/static/css/Stylesheet_Hilfsantrag_menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <ul class="menu-links">
+            <li class="nav-header">Menü</li>
+            <li class="nav-header">Mein Servicebereich</li>
+            <li class = "nav-link">
+                <a>Vermittlungsliste</a>
+            </li>
+            <button class="dropdown-btn">Hilfsantrag
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-container">
+                <a href="Kategorie.html">Aktivität-Kategorie</a>
+                <a href="Tag_Uhrzeit.html">Tag und Uhrzeit</a>
+                <a href="Treffpunkt.html">Treffpunkt</a>
+                <a href="Übersicht.html">Übersicht</a>
+            </div>
+            <li class = "nav-link">
+                <a href="Registrierung_PLZ.html">Aktivitäten in der Nachbarschaft</a>
+            </li class = "nav-link">
+            <li class = "nav-link">
+                <a>Bewertungen</a>
+            </li>
+            <li class = "nav-link">
+                <a>Posteingang</p>
+            </li>
+            <li class = "nav-link">
+                <a>Einstellungen</p>
+            </li>
+        </ul>
+
+    </div>
+    <div class="centered_display">
+        <h2>Finden sie einen Hilfesuchenden</h2>
+        <form method="POST">
+        <ul>
+        <li>
+        <label for="start">Start Zeitraum Hilfe:</label>
+        <input type="date" id="start" name="startdate"   min="2022-01-01">
+        </li>
+        <li>
+        <label for="end">Ende Zeitraum Hilfe:</label>
+        <input type="date" id="end" name="enddate"   min="2022-01-01">
+        </li>
+        <li>
+        <label for="plz">Geben sie eine Postleitzahl ein:</label>
+        <input type="plz" id="plz" name="zipcode" pattern="[0-9]{5}">
+        </li>
+        <li>
+        <label for="cat">Wählen sie eine Kategorie:</label>
+        <input id="cat" type="text" name="category" list="categories">
+            <datalist id="categories">
+              <option value="Sozial">
+              <option value="Transport">
+              <option value="Technik">
+            </datalist>
+        </li>
+        <li><input type="submit" name="submit_search" value="suchen"></li>
+        <ul>
+        </form>
+
+        <form method="POST">
+        <ul>
+            <li>
+            <form method="POST">
+                <p>Willst du Kontakt aufnehmen mit: PeterBeispiel</p>
+                <input type="hidden" name="Hilfsantrag" value="PeterBeispiel">
+                <input type="submit" name="submit_antrag" value="hilf PeterBeispiel">
+            </form>
+            </li>
+
+        {% for helpseeker in Helpseekers %}
+
+            <li>
+
+            <form method="POST">
+                <p>Willst du Kontakt aufnehmen mit: {{helpseeker}}</p>
+                <input type="hidden" name="ID_helpseek" value="{{helpseeker}}">
+                <input type="hidden" name="username_helpseeker" value="{{helpseeker}}">
+                <input type="submit" name="submit_antrag" value="Hilfe anbieten">
+            </form>
+
+            </li>
+        {% endfor %}
+
+        </ul>
+
+
+    </div>
+    <script>
+        var dropdown = document.getElementsByClassName("dropdown-btn");
+        var i;
+
+        for (i = 0; i < dropdown.length; i++) {
+          dropdown[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var dropdownContent = this.nextElementSibling;
+            if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+            } else {
+              dropdownContent.style.display = "block";
+            }
+          });
+        }
+    </script>
+</body>
+</html>
