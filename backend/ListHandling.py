@@ -1,6 +1,6 @@
 from backend import Utilities
 from backend.SearchCriteria import SearchCriteria
-from backend import User
+from backend.User import User
 from datetime import date
 from backend.HelpRequest import HelpRequest
 
@@ -17,26 +17,27 @@ def login(email:str, pwd:str):
     for u in userList:
         print(u.getEmail())
         if (u.email == email):
-            return u.loginUser(pwd)
+            return [u.loginUser(pwd), u.username]
         else:
             return False
 
-def register(email:str,pwd:str,vorname:str,nachname:str,plz:str,adress:str,dob:date,bio:str,username:str,phonenumber:str,status:str):
+def register(email:str,pwd:str,vorname:str,
+    nachname:str,plz:str,dob:str,
+    username:str,
+    phonenumber= " ",adress= "no address", bio= " ", status= "Helper"):
     """
     register user to website
     """
     u = User(email,pwd,vorname,nachname,plz,adress,dob,bio,username,phonenumber,status)
-    userList = Utilities.getUserlist()
-    userList.append(u)
-    Utilities.save(list, "User", "data/User.json")
+    addToUserList(u)
 
 def addToUserList(u:User):
     """
     adds user to list of users and saves to json
     """
-    list = Utilities.getUserList()
-    list.append(u)
-    Utilities.save(list, "User", "data/User.json")
+    userlist = Utilities.getUserlist()
+    userlist.append(u)
+    Utilities.save(userlist, "User", "/home/PaTe/mysite/data/User.json")
 
 def add_offer_to_request(helper_username:str, request_id:int):
     """
@@ -49,7 +50,7 @@ def add_offer_to_request(helper_username:str, request_id:int):
             break
     Utilities.save(list, 'Requests', 'data/HelpRequests.json')
 
-def get_filtered_help_request_list (search_criteria : SearchCriteria):
+def get_filtered_help_request_list(search_criteria : SearchCriteria):
     """
     returns help requests list with filtered results for search criteria
     """
