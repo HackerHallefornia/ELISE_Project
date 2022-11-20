@@ -7,6 +7,24 @@ app = Flask(__name__)
 
 app.secret_key = "4b0dda699e6179fc0125c49ba3116be57145d44f"
 
+@app.route("/Posteingang/<name>", methods= ["POST", "GET"])
+def inbox(name):
+    #unser username ist email
+    if request.method == "GET":
+        if "user" in session:
+            u = session["user"]
+            chat_partner = name
+            message_list = ListHandling.get_messages_for_chat(u,chat_partner)
+            return render_template("Posteingang.html", sender_name = chat_partner, messages = message_list)
+        else: 
+            return redirect(url_for("login"))
+    if request.method == "POST":
+
+        print("Hello")
+        if request.form["Senden"] == "Send":
+            content = request.form["content"]
+            ListHandling.send_message(session["user"], name, content)
+            return redirect(url_for("inbox", name=name))
 
 @app.route("/home", methods=['GET', 'POST'])
 def startpage():
