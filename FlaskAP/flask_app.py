@@ -205,6 +205,9 @@ def offer_help():
 
         # diese auf der Seite anzeigen
 
+@app.route('/Hilfsgesuch_erstellen', methods=['GET', 'POST'])       
+def hilfe():
+    return render_template('Kategorie.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
